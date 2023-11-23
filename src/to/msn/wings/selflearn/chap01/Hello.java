@@ -31,3 +31,20 @@ public class Hello {  //クラス宣言（開始）
     {{{{{}}}}}  
   }
 */
+
+/*
+  個々の指示を表すものを「命令文（単に文ともいう）」という。
+*/
+
+/*
+  クラスを分類するための入れ物を「パッケージ」という。
+*/
+
+/*
+  クラスは、正確には「パッケージ名+クラス名」で識別する。
+  例えば、to.msn.wings.selflearn.chap01パッケージに属するHelloクラスであれば、「to.msn.wings.selflearn.chap01.Hello」と表現できる。
+  このような表現の仕方を「完全修飾名（FQCN:Fully Qualified Class Name）」という。
+  しかし、プログラムを記述する際に完全修飾名で表すのは冗長なので、「import命令」を使う。
+  例えば、「import java.time.LocalDateTime; 」で「このコードではjava.timeパッケージのLocalDateTimeクラスを利用する」とあらかじめ宣言しておく。
+  これによって「java.time.」を省略した「LocalDateTime」という表記が許され、これを「名前の解決」という。
+*/
