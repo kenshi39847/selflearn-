@@ -3,8 +3,10 @@ package to.msn.wings.selflearn.chap02;
 public class Variable {
 
 	public static void main(String[] args) {
-		
-	}
+		final double TAX = 1.08;
+		int price = 1000;
+		double sum = price * TAX;
+		System.out.println(sum);	}
 }
 
 /*
@@ -31,4 +33,7 @@ public class Variable {
   5.文字数の制限はない
 */
 
-
+/*
+  定数の宣言
+  final データ型 定数名 = 値
+*/
