@@ -64,7 +64,7 @@ public class Literal {
   \"                  |ダブルクォート
   \\                  |バックスラッシュ
   \xxx                |8進数の文字
-  \uxxxx              |Unicode文字
+  \u3042              |Unicode文字
 */
 
 /*
