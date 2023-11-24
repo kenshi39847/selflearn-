@@ -3,7 +3,6 @@ package to.msn.wings.selflearn.chap02;
 public class Literal {
 
 	public static void main(String[] args) {
-		// TODO 自動生成されたメソッド・スタブ
 
 	}
 
@@ -45,4 +44,30 @@ public class Literal {
 /*
   桁数の大きな数値の可能性を改善するために、数値リテラルの中に「_」を記述することを「数値セパレーター」という。
   var value = 1_234_567;
+*/
+
+/*
+  文字リテラルは「'」でくくって表す。下記のコードは意味的には等価である。
+  System.out.println('あ');
+  System.out.println('\u3042'); 
+*/
+
+/*
+  「\~」は「エスケープシーケンス」と呼ばれ、主にタブ/改行など特別な意味を持つ（=ディスプレイに表示できないなど）文字を表記するために利用する。
+  エスケープシーケンス|概要
+  \t                  |タブ文字
+  \b                  |バックスペース（1文字削除）
+  \n                  |改行（ラインフィード）
+  \r                  |復帰（キャリッジリターン）
+  \f                  |フォームフィード（改ページ）
+  \'                  |シングルクォート
+  \"                  |ダブルクォート
+  \\                  |バックスラッシュ
+  \xxx                |8進数の文字
+  \uxxxx              |Unicode文字
+*/
+
+/*
+  文字列リテラルは「"」でくくって表す。
+  System.out.println("You are \"GREAT\" teachaer!!"); 
 */
