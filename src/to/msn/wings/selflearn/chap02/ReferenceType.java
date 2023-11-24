@@ -3,7 +3,12 @@ package to.msn.wings.selflearn.chap02;
 public class ReferenceType {
 
 	public static void main(String[] args) {
-		// TODO 自動生成されたメソッド・スタブ
+		var list = new int[][] {
+			{ 1, 2 },
+			{ 3, 4, 5, 6 },
+			{ 7, 8, 9 },
+		};
+		System.out.println(list[1][2]);
 
 	}
 
@@ -54,4 +59,57 @@ public class ReferenceType {
 /*
   クラスフィールド/クラスメソッドに対してオブジェクト（インスタンス）を生成して呼び出すフィールド/メソッドのことを
   「インスタンスフィールド/インスタンスメソッド」という。
+*/
+
+/*
+  配列の宣言（サイズ指定）
+  データ型[] 配列名 = new データ型[要素数]
+  int[] list = new int[5];
+  配列の宣言（初期値あり）
+  データ型[] 配列名 = {要素1, 要素2, ...}
+  int[] list = { 1, 2, 3, 4, 5 };
+  配列の宣言（varによる配列宣言）
+  var list = new int[5];
+  var list = new int[] { 1, 2, 3, 4, 5 };
+*/
+
+/*
+  配列のアクセス
+  配列名[インデックス番号
+  System.out.println(list[0]); //結果:1
+  System.out.println(list.length); //結果:5
+*/
+
+/*
+  インデックスが1つの配列を1次元配列、インデックスが複数の配列を多次元配列という。
+*/
+
+/*
+  多次元配列の宣言（サイズ指定）
+  データ型[][] 配列名 = new データ型[要素数1][要素数2]
+  int[][] list = new int[3][5];
+*/
+
+/*
+  多次元配列の宣言（初期値を指定）
+  データ型[][] 配列名 = {
+    { 値, 値, ... },
+    { 値, 値, ... },
+    ...
+  }
+  int[][] list = {
+    { 1, 2, 3 },
+    { 4, 5, 6 },
+    { 7, 8, 9 },
+  };
+*/
+
+/*
+  多次元配列の宣言（長さが異なる例）
+  データ型[][] 変数名 = new データ型[要素数][]
+  変数名[インデックス] = new データ型[要素数]
+  var list = new int[3][];
+  list[0] = new int[2];
+  list[1] = new int[4];
+  list[2] = new int[3];
 */
