@@ -24,6 +24,10 @@ public class AssignmentOperator {
 	    builder1.append("えお");
 	    System.out.println(builder1.toString());  //結果:あいうえお
 	    System.out.println(builder2.toString());  //結果:あいうえお
+	    
+	    final int[] VALUES = { 10, 20 ,30 };
+	    //VALUES = new int[] { 15, 25, 35 };  //結果:エラー
+	    VALUES[0] = 100;  //結果:動作する
 
 	}
 
@@ -33,4 +37,13 @@ public class AssignmentOperator {
   次の2つのコードは意味的には等価である。
   i += j;
   i = i + j;
+*/
+
+/*
+  finalで修飾された変数は厳密には変更できない変数ではなく「再代入できない変数」である。
+  つまり、定数であっても値を変更できてしまう場合があるということである。
+  final int[] VALUES = { 10, 20 ,30 };
+  VALUES = new int[] { 15, 25, 35 };  //結果:エラー
+  VALUES[0] = 100;  //結果:動作する
+  なお、参照型でも、例えばString型は値を変更できない型（不変型）なので上記のような問題は起きない。
 */
