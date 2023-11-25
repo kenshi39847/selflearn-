@@ -1,14 +1,17 @@
 package to.msn.wings.selflearn.chap03;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 public class ArithmeticOperators {
 
 	public static void main(String[] args) {
-		//System.out.println(1 + 2);
-	    //System.out.println("a" + 5);
-	    //System.out.println(5 + "b");
-	    //System.out.println("1" + "2");
-	    //System.out.println("a" + LocalDateTime.now());
-	    // System.out.println(1 + LocalDateTime.now()); //エラー
+		System.out.println(1 + 2);  //結果:3
+	    System.out.println("a" + 5);  //結果:a5
+	    System.out.println(5 + "b");  //結果:5b
+	    System.out.println("1" + "2");  //結果:12
+	    System.out.println("a" + LocalDateTime.now());  //結果:a2023-11-25T10:08:12.762633800
+	    //System.out.println(1 + LocalDateTime.now());  //結果:エラー
 	    
 		/*
 		var start = System.currentTimeMillis();
@@ -47,6 +50,13 @@ public class ArithmeticOperators {
 	    //System.out.println(5 % 0);  //結果:エラー（定数0による除算のため）
 	    System.out.println(5d / 0);  //結果:Infinity（無限大）
 	    System.out.println(5d % 0);  //結果:NaN（非数:Not a Number）
+	    
+	    System.out.println(Math.floor((0.7 + 0.1) * 10));  //結果:7.0
+	    
+	    var bd1 = new BigDecimal("0.7");
+	    var bd2 = new BigDecimal("0.1");
+	    var bd3 = new BigDecimal("10");
+	    System.out.println(bd1.add(bd2).multiply(bd3));  //結果:8.0
 	}
 
 }
@@ -85,4 +95,18 @@ public class ArithmeticOperators {
 /*
   ゼロ除算での挙動
   オペランドが整数の場合はコンパイルエラーとなり、オペランドが浮動小数点数の場合はInfinity,NaNという特殊の値になる。
+*/
+
+/*
+  System.out.println(Math.floor((0.7 + 0.1) * 10));  //結果:7.0
+  上記の場合、(0.7 + 0.1) * 10 = 8なので、小数点以下を切り捨てても8となるはずが結果は7となる。
+  これは不動小数点型が内部的には2進数で演算されるために発生する誤差である。
+  10進数では0.1と単純に表せるものを、2進数では0.0001100110011...という「無限循環小数」となるため、
+  (0.7 + 0.1) * 10も内部的には7.99999999...となるため、「BigDecimalクラス」を利用する。
+  import java.math.BigDecimal;
+  (中略)
+  var bd1 = new BigDecimal("0.7");
+  var bd2 = new BigDecimal("0.1");
+  var bd3 = new BigDecimal("10");
+  System.out.println(bd1.add(bd2).multiply(bd3));  //結果:8.0
 */
