@@ -1,6 +1,7 @@
 package to.msn.wings.selflearn.chap03;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 public class RelationalOperators {
 
@@ -33,6 +34,36 @@ public class RelationalOperators {
 	    var x = 0.2 * 3;
 	    var y = 0.6;
 	    System.out.println(Math.abs(x - y) < EPSILON);  //結果:true
+	    
+	    /*
+	    var data1 = new String[] { "あ", "い", "う" };
+	    var data2 = new String[] { "あ", "い", "う" };
+	    System.out.println(data1 == data2);  //結果:false
+	    System.out.println(data1.equals(data2));  //結果:false
+	    */
+	    
+	    /*
+	    var data1 = new int[][] {
+	        { 1, 2, 3 },
+	        { 4, 5, 6 },
+	        { 7, 8, 9 },
+	      };
+	      var data2 = new int[][] {
+	        { 1, 2, 3 },
+	        { 4, 5, 6 },
+	        { 7, 8, 9 },
+	      };
+	      System.out.println(Arrays.equals(data1, data2));  //結果:false
+	      System.out.println(Arrays.deepEquals(data1, data2));  //結果:true
+	      */
+	      
+	      var data1 = new int[] {1, 3};
+	      var data2 = new int[] {1, 2, 3};
+	      var data3 = new int[] {1, 2, 3};
+	      var data4 = new int[] {1, 3, 1};
+	      System.out.println(Arrays.compare(data1, data2));  //結果:1
+	      System.out.println(Arrays.compare(data3, data4));  //結果:-1
+	      System.out.println(Arrays.compare(data2, data3));  //結果:0
 	}
 
 }
@@ -54,4 +85,15 @@ public class RelationalOperators {
   定数EPSILONは誤差の許容範囲を表す。「計算機イプシロン（丸め単位）」ともいう。
   あとは、浮動小数点数同士の差を求め、その値がイプシロン未満であれば、保障した桁数までは等しいということになる。
   Math.absは絶対値を求める命令である。
+*/
+
+/*
+  配列の比較には==演算子はもちろん、equalsメソッドも利用できない。
+  配列を比較するにはArraysクラスのdeepEqualsメソッドを利用する。
+*/
+
+/*
+  配列の大小を比較するためのcompareメソッドもある。
+  compareメソッドは配列の先頭要素から順に比較し、より大きい/小さい要素が見つかったところで、配列全体として大小を確定する。
+  配列1>配列2の場合は「正数」、配列1=配列2の場合は「0」、配列1<配列2の場合は「負数」である。
 */
