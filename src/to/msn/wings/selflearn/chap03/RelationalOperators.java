@@ -72,6 +72,9 @@ public class RelationalOperators {
 	      Integer j1 = 256;
 	      Integer j2 = 256;
 	      System.out.println(j1 == j2);  //結果:false
+	      
+	      var age = 30;
+	      System.out.println(age >= 20 ? "おとな" : "こども");  //結果:おとな
 	}
 
 }
@@ -116,4 +119,12 @@ public class RelationalOperators {
 
 /*
   オートボクシングされた基本型の値（ラッパーオブジェクト）はequalsメソッドで比較する。
+*/
+
+/*
+  条件演算子
+  条件式 ? 式1 : 式2
+  以下のコードは変数ageが20以上であれば「おとな」、そうでなければ「こども」を表示する。
+  var age = 30;
+  System.out.println(age >= 20 ? "おとな" : "こども");  //結果:おとな
 */
