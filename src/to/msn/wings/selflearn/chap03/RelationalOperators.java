@@ -64,6 +64,14 @@ public class RelationalOperators {
 	      System.out.println(Arrays.compare(data1, data2));  //結果:1
 	      System.out.println(Arrays.compare(data3, data4));  //結果:-1
 	      System.out.println(Arrays.compare(data2, data3));  //結果:0
+	      
+	      Integer i1 = 108;
+	      Integer i2 = 108;
+	      System.out.println(i1 == i2);  //結果:true
+
+	      Integer j1 = 256;
+	      Integer j2 = 256;
+	      System.out.println(j1 == j2);  //結果:false
 	}
 
 }
@@ -96,4 +104,16 @@ public class RelationalOperators {
   配列の大小を比較するためのcompareメソッドもある。
   compareメソッドは配列の先頭要素から順に比較し、より大きい/小さい要素が見つかったところで、配列全体として大小を確定する。
   配列1>配列2の場合は「正数」、配列1=配列2の場合は「0」、配列1<配列2の場合は「負数」である。
+*/
+
+/*
+  オートボクシングに際して一部の基本型の値がメモ化（キャッシュ）される。具体的には以下の値がメモ化の対象になる。
+  1.true/false
+  2.byte値
+  3.\u0000～\u007Fのchar値
+  4.-128～127範囲のshort/int
+*/
+
+/*
+  オートボクシングされた基本型の値（ラッパーオブジェクト）はequalsメソッドで比較する。
 */
