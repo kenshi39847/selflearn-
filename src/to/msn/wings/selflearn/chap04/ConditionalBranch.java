@@ -23,6 +23,7 @@ public class ConditionalBranch {
 	    }  //結果：変数iは50より大きいです。
 	    */
 		
+		/*
 		var i = 1;
 	    var j = 0;
 	    if (i == 1) {
@@ -34,6 +35,14 @@ public class ConditionalBranch {
 	    } else {
 	      System.out.println("変数iは1ではありません。");
 	    }  //結果：変数iは1ですが、jは1ではありません。
+	    */
+	    
+	    var i = 1;
+	    if (i == 1)
+	      System.out.println("変数iは1です。");
+	    else
+	      System.out.println("変数iは1ではありません。");  //結果：変数iは1です。
+	    
 
 	}
 
@@ -82,4 +91,10 @@ public class ConditionalBranch {
 
 /*
   制御命令同士を入れ子に記述することをネストするという。
+*/
+
+/*
+  if、else if、elseブロック配下の文が1つである場合、ブロック（{...}）は省略できる。
+  しかし、{...}を省略してもそれほどコードは短くなるわけではなく、むしろブロックの範囲が不明確になるため
+  バグの温床になりやすいためおすすめしない。
 */
