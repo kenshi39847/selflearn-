@@ -3,12 +3,23 @@ package to.msn.wings.selflearn.chap04;
 public class ConditionalBranch {
 
 	public static void main(String[] args) {
+		/*
 		var i = 10;
 	    if (i == 10) {
 	      System.out.println("変数iは10です。");
 	    } else {
 	      System.out.println("変数iは10ではありません。");
 	    }  //結果：変数iは10です。
+	    */
+	    
+	    var i = 100;
+	    if (i > 50) {
+	      System.out.println("変数iは50より大きいです。");
+	    } else if (i > 30) {
+	      System.out.println("変数iは30より大きく、50以下です。");
+	    } else {
+	      System.out.println("変数iは30以下です。");
+	    }  //結果：変数iは50より大きいです。
 
 	}
 
@@ -37,3 +48,21 @@ public class ConditionalBranch {
   2.boolean型の変数を==で比較しない
   3.条件式からはなるべく否定を取り除く
 */
+
+/*
+  if...else if命令
+  if(条件式1) {
+    ...条件式1がtrueのとき実行する処理...
+  } else if(条件式2) {
+    ...条件式2がtrueのとき実行する処理...
+  }
+  ...
+  } else {
+    ...条件式1,2...がいずれもfalseのときに実行する処理
+  } 
+*/
+
+/*
+  if...else if命令では複数の条件に合致しても、実行されるブロックは最初に合致した1つだけが表示される。
+*/
+
