@@ -12,6 +12,7 @@ public class ConditionalBranch {
 	    }  //結果：変数iは10です。
 	    */
 	    
+		/*
 	    var i = 100;
 	    if (i > 50) {
 	      System.out.println("変数iは50より大きいです。");
@@ -20,6 +21,19 @@ public class ConditionalBranch {
 	    } else {
 	      System.out.println("変数iは30以下です。");
 	    }  //結果：変数iは50より大きいです。
+	    */
+		
+		var i = 1;
+	    var j = 0;
+	    if (i == 1) {
+	      if (j == 1) {
+	        System.out.println("変数i、jは1です。");
+	      } else {
+	        System.out.println("変数iは1ですが、jは1ではありません。");
+	      }
+	    } else {
+	      System.out.println("変数iは1ではありません。");
+	    }  //結果：変数iは1ですが、jは1ではありません。
 
 	}
 
@@ -66,3 +80,6 @@ public class ConditionalBranch {
   if...else if命令では複数の条件に合致しても、実行されるブロックは最初に合致した1つだけが表示される。
 */
 
+/*
+  制御命令同士を入れ子に記述することをネストするという。
+*/
