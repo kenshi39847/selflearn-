@@ -19,9 +19,25 @@ public class StringOperations {
 	    System.out.println(str.compareToIgnoreCase("DEF"));  //結果：0
 	    */
 	    
+		/*
 	    var str = "Wings";
 	    System.out.println(str.equals("WINGS"));  //結果：false
 	    System.out.println(str.equalsIgnoreCase("WINGS"));  //結果：true
+	    */
+		
+		/*
+		var str1 = "";
+	    var str2 = "いろはにほへと";
+	    System.out.println(str1.isEmpty());  //結果：true
+	    System.out.println(str2.isEmpty());  //結果：false
+	    */
+	    
+	    var str1 = "";
+	    var str2 = " 　  ";
+	    System.out.println(str1.isEmpty());  //結果：true
+	    System.out.println(str1.isBlank());  //結果：true
+	    System.out.println(str2.isEmpty());  //結果：false
+	    System.out.println(str2.isBlank());  //結果：true
 	}
 
 }
@@ -58,4 +74,9 @@ public class StringOperations {
   public int compareTo(String str)
   public int compareToIgnoreCase(String str)
   str:比較する文字列
+*/
+
+/*
+  文字列が空であるか判定するには「isEmptyメソッド」を利用する。
+  さらに、空文字列もしくは空白だけかを判定する「isBlankメソッド」もある。
 */
