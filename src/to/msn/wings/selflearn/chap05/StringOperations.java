@@ -57,6 +57,7 @@ public class StringOperations {
 	    System.out.println(str.lastIndexOf("にわ", 3));  //結果：0
 	    */
 		
+		/*
 	    var str = "WINGSプロジェクト";
 	    System.out.println(str.contains("プロ"));  //結果：true
 	    System.out.println(str.startsWith("WINGS"));  //結果：true
@@ -64,6 +65,17 @@ public class StringOperations {
 	    System.out.println(str.endsWith("WINGS"));  //結果：false
 	    System.out.println(str.indexOf("プロ") > 0);  //結果：true(部分一致)
 	    System.out.println(str.indexOf("WINGS") == 0);  //結果：true(前方一致)
+	    */
+	    
+	    var str = "WINGSプロジェクト";
+	    System.out.println(str.substring(5, 7));  //結果：プロ
+	    // System.out.println(str.substring(5, 2));  //結果：エラー（begin > end なため）
+	    // System.out.println(str.substring(-5));  //結果：エラー（beginが負数のため）
+	    // System.out.println(str.substring(15));  //結果：エラー（文字列の末尾を超えるため）
+	    
+	    var mail = "yamada@example.com";
+	    System.out.println(mail.substring(mail.lastIndexOf("@") + 1));  //結果：example.com
+	    System.out.println(mail.charAt(0));  //結果：y
 	}
 
 }
@@ -126,10 +138,6 @@ public class StringOperations {
 */
 
 /*
-  文字列に指定された文字列が含まれるかを判定するには「contailsメソッド」を利用する。
-*/
-
-/*
   文字列に指定された文字列が含まれるか判定するには「containsメソッド」を利用する。
   また、単に文字列が含まれるかだけではなく、ある文字列が先頭/末尾位置に位置するか（=文字列がある文字列で始まる/終わるか）を
   判定するならば、startsWith/endsWithメソッドも利用できる。
@@ -144,4 +152,14 @@ public class StringOperations {
   prefix:接頭辞
   offset:検索開始位置
   suffix:接尾辞
+*/
+
+/*
+  元の文字列から部分的な文字列を取得するには「substringメソッド」を利用する。
+*/
+
+/*
+  public String substring(int begin [,int end])
+  begin:検索開始位置（先頭は0）
+  end:検索終了位置
 */
