@@ -48,12 +48,22 @@ public class StringOperations {
 	    System.out.println(str.stripTrailing());  //結果：  Wings Project
 	    */
 		
+		/*
 		var str = "にわにはにわにわとりがいる";
 	    System.out.println(str.indexOf("にわ"));  //結果：0
 	    System.out.println(str.indexOf("にも"));  //結果：-1
 	    System.out.println(str.lastIndexOf("にわ"));  //結果：6
 	    System.out.println(str.indexOf("にわ", 3));  //結果：4
 	    System.out.println(str.lastIndexOf("にわ", 3));  //結果：0
+	    */
+		
+	    var str = "WINGSプロジェクト";
+	    System.out.println(str.contains("プロ"));  //結果：true
+	    System.out.println(str.startsWith("WINGS"));  //結果：true
+	    System.out.println(str.startsWith("WINGS", 3));  //結果false
+	    System.out.println(str.endsWith("WINGS"));  //結果：false
+	    System.out.println(str.indexOf("プロ") > 0);  //結果：true(部分一致)
+	    System.out.println(str.indexOf("WINGS") == 0);  //結果：true(前方一致)
 	}
 
 }
@@ -113,4 +123,25 @@ public class StringOperations {
   public int lastIndexOf(String str [,int index])
   str:検索する部分文字列
   index:検索開始位置（先頭は0）
+*/
+
+/*
+  文字列に指定された文字列が含まれるかを判定するには「contailsメソッド」を利用する。
+*/
+
+/*
+  文字列に指定された文字列が含まれるか判定するには「containsメソッド」を利用する。
+  また、単に文字列が含まれるかだけではなく、ある文字列が先頭/末尾位置に位置するか（=文字列がある文字列で始まる/終わるか）を
+  判定するならば、startsWith/endsWithメソッドも利用できる。
+*/
+
+/*
+  contains/startsWith/endsWithメソッド
+  public boolean contains(String s)
+  public boolean startsWith(String prefix [,int offset])
+  public boolean endsWith(String suffix)
+  s:検索する文字列
+  prefix:接頭辞
+  offset:検索開始位置
+  suffix:接尾辞
 */
