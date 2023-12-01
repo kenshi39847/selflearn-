@@ -3,11 +3,25 @@ package to.msn.wings.selflearn.chap05;
 public class StringOperations {
 
 	public static void main(String[] args) {
+		/*
 		var str1 = "WINGSプロジェクト";
 	    System.out.println(str1.length());  //結果：11
 
 	    var str = "𠮟る";
 	    System.out.println(str.codePointCount(0, str.length()));  //結果：2
+	    */
+		
+		/*
+	    var str = "def";
+	    System.out.println(str.compareTo("abc"));  //結果：3
+	    System.out.println(str.compareTo("def"));  //結果：0
+	    System.out.println(str.compareTo("xyz"));  //結果：-20
+	    System.out.println(str.compareToIgnoreCase("DEF"));  //結果：0
+	    */
+	    
+	    var str = "Wings";
+	    System.out.println(str.equals("WINGS"));  //結果：false
+	    System.out.println(str.equalsIgnoreCase("WINGS"));  //結果：true
 	}
 
 }
@@ -28,5 +42,20 @@ public class StringOperations {
 
 /*
   codePointCountメソッド
-  public int codePointCount(int 長さを求める開始位置, int 佐賀差を求める終了位置)
+  public int codePointCount(int begin, int end)
+  begin:長さを求める開始位置
+  end:長さを求める終了位置
+*/
+
+/*
+  equalsメソッドはあくまで等しいかどうか比較するだけなので、辞書的な大小を比較するときは「compareToメソッド」を利用する。
+  compareToメソッドは大文字/小文字を区別するが、
+  区別しないで比較するときは「compareToIgnoreCaseメソッド」または「equalsIgnoreCaseメソッド」を利用する。
+*/
+
+/*
+  compareTo/compareToIgnoreCaseメソッド
+  public int compareTo(String str)
+  public int compareToIgnoreCase(String str)
+  str:比較する文字列
 */
