@@ -12,6 +12,19 @@ public class WrapperClass {
 	      result += i;
 	    }
 	    System.out.println(result);
+	    
+	    //文字列から数値への変換
+	    System.out.println(Integer.parseInt("108"));  //結果：108
+	    System.out.println(Double.parseDouble("1.2345"));  //結果：1.2345
+	    System.out.println(Integer.parseInt("FF", 16));  //結果：255
+	    System.out.println(Double.parseDouble("0.653e2"));  //結果：65.3
+	    
+	    //数値から文字列への変換
+	    System.out.println(String.valueOf(108));  //結果：108
+	    System.out.println(Integer.toString(108));  //結果：108
+	    System.out.println(Double.toString(1.2345));  //結果：1.2345
+	    System.out.println(Integer.toString(255, 16));  //結果：ff
+	    System.out.println(Integer.toHexString(255));  //結果：ff
 	}
 
 }
@@ -41,4 +54,11 @@ public class WrapperClass {
   ラッパーオブジェクトから基本型への暗黙的な変換のことを「アンボクシング（unboxing）」という。
   ボクシング/アンボクシングをあわせて「オートボクシング」という。
   しかし、オートボクシングには安易に頼らないようにする。
+*/
+
+/*
+  型キャストでは文字列（String）から数値に変換することはできない。
+  そのため、ラッパークラスの「parseXxxxxメソッド」を利用する。
+  また、整数型のparasXxxxxメソッドは、第2引数に基数を指定することで、2～36進数表現への変換も可能である。
+  同様に、数値を文字列に変換するときは、Stringクラスの「valueOfメソッド」、またはラッパークラスの「toStringメソッド」を利用する。
 */
