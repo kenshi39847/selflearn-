@@ -37,12 +37,14 @@ public class ConditionalBranch {
 	    }  //結果：変数iは1ですが、jは1ではありません。
 	    */
 	    
+		
 	    var i = 1;
 	    if (i == 1)
 	      System.out.println("変数iは1です。");
 	    else
 	      System.out.println("変数iは1ではありません。");  //結果：変数iは1です。
 	    
+		
 	    var rank = "甲";
 
 	    switch (rank) {
@@ -74,7 +76,7 @@ public class ConditionalBranch {
 	      case "ウイスキー":
 	        System.out.println("蒸留酒です。");
 	        break;
-	    }  //結果：醸造酒です。
+	    }  //結果：醸造酒です。   
 
 	}
 
