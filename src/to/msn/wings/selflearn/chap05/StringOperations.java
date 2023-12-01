@@ -32,12 +32,19 @@ public class StringOperations {
 	    System.out.println(str2.isEmpty());  //結果：false
 	    */
 	    
+		/*
 	    var str1 = "";
 	    var str2 = " 　  ";
 	    System.out.println(str1.isEmpty());  //結果：true
 	    System.out.println(str1.isBlank());  //結果：true
 	    System.out.println(str2.isEmpty());  //結果：false
 	    System.out.println(str2.isBlank());  //結果：true
+	    */
+	    
+	    var str = "  Wings Project  ";
+	    System.out.println(str.strip());  //結果：Wings Project
+	    System.out.println(str.stripLeading());  //結果：Wings Project  
+	    System.out.println(str.stripTrailing());  //結果：  Wings Project
 	}
 
 }
@@ -79,4 +86,9 @@ public class StringOperations {
 /*
   文字列が空であるか判定するには「isEmptyメソッド」を利用する。
   さらに、空文字列もしくは空白だけかを判定する「isBlankメソッド」もある。
+*/
+
+/*
+  文字列から前後の空白を除去するには、「stripメソッド」を利用する。
+  また、文字列前方の空白だけを除去する「stripLeadingメソッド」、後方の空白だけを除去する「stripTrailingメソッド」を利用する。
 */
