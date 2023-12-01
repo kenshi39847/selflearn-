@@ -41,10 +41,19 @@ public class StringOperations {
 	    System.out.println(str2.isBlank());  //結果：true
 	    */
 	    
+		/*
 	    var str = "  Wings Project  ";
 	    System.out.println(str.strip());  //結果：Wings Project
 	    System.out.println(str.stripLeading());  //結果：Wings Project  
 	    System.out.println(str.stripTrailing());  //結果：  Wings Project
+	    */
+		
+		var str = "にわにはにわにわとりがいる";
+	    System.out.println(str.indexOf("にわ"));  //結果：0
+	    System.out.println(str.indexOf("にも"));  //結果：-1
+	    System.out.println(str.lastIndexOf("にわ"));  //結果：6
+	    System.out.println(str.indexOf("にわ", 3));  //結果：4
+	    System.out.println(str.lastIndexOf("にわ", 3));  //結果：0
 	}
 
 }
@@ -91,4 +100,17 @@ public class StringOperations {
 /*
   文字列から前後の空白を除去するには、「stripメソッド」を利用する。
   また、文字列前方の空白だけを除去する「stripLeadingメソッド」、後方の空白だけを除去する「stripTrailingメソッド」を利用する。
+*/
+
+/*
+  ある文字列の中で、特定の部分文字列が登場する文字列を取得するには「indexOf/lastIndexOfメソッド」を利用する。
+  検索を前方から開始する場合は「indexOfメソッド」、検索を後方から開始する場合は「lastIndexOfメソッド」を利用する。
+*/
+
+/*
+  indexOf/lastIndexOfメソッド
+  public int indexOf(String str [,int index])
+  public int lastIndexOf(String str [,int index])
+  str:検索する部分文字列
+  index:検索開始位置（先頭は0）
 */
