@@ -11,6 +11,19 @@ public class RegularExpression {
 	      System.out.println(Pattern.matches(rx, t) ? t : "アンマッチ");
 	      // System.out.println(t.matches(rx) ? t : "アンマッチ");
 	    }
+	    
+	    var str = "会社の電話は0123-99-0000です。自宅は000-123-4567だよ。";
+	    var ptn = Pattern.compile("(\\d{2,4})-(\\d{2,4})-(\\d{4})");
+	    var match = ptn.matcher(str);
+	    while (match.find()) {
+	      System.out.println("開始位置：" + match.start());
+	      System.out.println("終了位置：" + match.end());
+	      System.out.println("マッチング文字列：" + match.group());
+	      System.out.println("市外局番：" + match.group(1));
+	      System.out.println("市内局番：" + match.group(2));
+	      System.out.println("加入者番号：" + match.group(3));
+	      System.out.println("-----");
+	    }
 
 	}
 
@@ -41,4 +54,38 @@ public class RegularExpression {
   public static boolean matches(String regex, CharSequence input)
   regex:正規表現
   input:検索する文字列
+*/
+
+/*
+  単にマッチしたかどうかを判定するだけでなく、
+  マッチした文字列をもとの文字列から抜き出したい場合は「Pattern/Matcherクラス」を利用する。
+*/
+
+/*
+  compileメソッド
+  public static Pattern compile(String regex [,int flags])
+  regex:正規表現
+  flags:マッチフラグ
+*/
+
+/*
+  matcherメソッド
+  ppublic Matcher matcher(CharSequence input)
+  input:検索文字列
+*/
+
+/*
+  Matcherクラスの主なメソッド（引数groupはグループのインデックス）
+  メソッド                 |概要
+  boolean find([int start])|次のマッチを検索（引数startは検索開始位置）
+  boolean lookingAt()      |文字列先頭からマッチするか
+  boolean matches()        |文字列全体にマッチするか
+  int start([int group])   |開始位置を取得
+  int end([int group])     |終了位置を取得
+  String group([int group])|int番目にマッチした部分文字列を取得
+*/
+
+/*
+  正規表現の中で()でくくられた部分（サブマッチパターン）にマッチした部分文字列のことを
+  「サブマッチ文字列（グループ、キャプチャグループ）」という。
 */
