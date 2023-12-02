@@ -76,6 +76,25 @@ public class StringOperations {
 	    var mail = "yamada@example.com";
 	    System.out.println(mail.substring(mail.lastIndexOf("@") + 1));  //結果：example.com
 	    System.out.println(mail.charAt(0));  //結果：y
+	    
+	    var str1 = "うめ,もも,さくら";
+	    var result1 = str1.split(",");
+	    System.out.println(String.join("＆", result1));  //結果：うめ＆もも＆さくら
+
+	    var str2 = "うめ,もも,さくらとあんず";
+	    var result2 = str2.split("[,と]");
+	    System.out.println(String.join("＆", result2));  //結果：うめ＆もも＆さくら＆あんず
+
+	    var str3 = "うめ,もも,さくら";
+	    var result3 = str3.split("");
+	    System.out.println(String.join("＆", result3));  //結果：う＆め＆,＆も＆も＆,＆さ＆く＆ら
+
+	    var str4 = "うめ,もも,さくら,あんず";
+	    var result4 = str4.split(",", 3);
+	    System.out.println(String.join("＆", result4));  //結果：うめ＆もも＆さくら,あんず
+
+	    System.out.println(String.join(",", "うめ", "もも", "さくら"));  //結果：うめ,もも,さくら
+	    
 	}
 
 }
@@ -162,4 +181,27 @@ public class StringOperations {
   public String substring(int begin [,int end])
   begin:検索開始位置（先頭は0）
   end:検索終了位置
+*/
+
+/*
+  文字列を特定の区切り文字で分割するには「splitメソッド」を利用する。
+*/
+
+/*
+  splitメソッド
+  public String[] split(String sep [,int count])
+  sep:区切り文字
+  count:最大の分割数
+*/
+
+/*
+  文字列配列を特定の区切り文字で連結するには「joinメソッド」を利用する。
+*/
+
+/*
+  joinメソッド
+  public static String join(CharSequence sep, Iterable elems)
+  public static String join(CharSequence sep, CharSequence... elems)
+  sep:区切り文字（空の場合は文字列をそのまま連結）
+  elems:連結する文字列
 */
