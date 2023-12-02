@@ -1,5 +1,8 @@
 package to.msn.wings.selflearn.chap05;
 
+import java.time.LocalDateTime;
+import java.util.Locale;
+
 public class StringOperations {
 
 	public static void main(String[] args) {
@@ -95,6 +98,41 @@ public class StringOperations {
 
 	    System.out.println(String.join(",", "うめ", "もも", "さくら"));  //結果：うめ,もも,さくら
 	    
+	    
+	    
+	    //シンプルなパターン
+	    System.out.println(String.format(
+	    	 "%sは%s、%d歳です。", "サクラ", "女の子", 1));  //結果：サクラは女の子、1歳です。
+	    System.out.println(String.format(
+	    	 "名前は%1$s、%3$d歳です。%1$sは、元気です。", "サクラ", "女の子", 1));  //結果：名前はサクラ、1歳です。サクラは、元気です。
+
+	    //引数align（文字列の最小幅）を指定したパターン
+	    System.out.println(String.format("%.2sです。", "サクラ"));  //結果：サクです。
+	    System.out.println(String.format("%5sです。", "サクラ"));  //結果：  サクラです。
+	    System.out.println(String.format("%-5sです。", "サクラ"));  //結果：サクラ  です。
+
+	    //整数の場合
+	    System.out.println(String.format("10進数 %08d", 12345));  //結果：10進数 00012345
+	    System.out.println(String.format("16進数 %#x", 10));  //結果：16進数 0xa
+
+	    //不動小数点の場合
+	    System.out.println(String.format("小数点数 %.2f", 123.456));  //結果：小数点数 123.46
+	    System.out.println(String.format("指数／小文字 %.2e", 123.456));  //結果：指数／小文字 1.23e+02
+	    System.out.println(String.format("指数／大文字 %.2E", 123.456));  //結果：指数／大文字 1.23E+02
+
+	    //日付/時刻の場合
+	    var d = LocalDateTime.now();
+	    System.out.println(String.format("%tF", d));  //結果：2023-12-02
+	    System.out.println(String.format("%tr", d));  //結果：10:00:48 午前
+	    System.out.println(String.format("%1$tY年 %1$tm月 %1$td日", d));  //結果：2023年 12月 02日
+
+	    //ロケール（引数loc）を指定した場合
+	    System.out.println(String.format(Locale.GERMAN, "%f", 1234.567));  //結果：1234,567000
+	    System.out.println(String.format(Locale.GERMAN, "%tr", d));  //結果：10:00:48 VORM.
+
+	    //printfメソッド
+	    System.out.printf("%.2sです。\n", "サクラ");  //結果：サクです。
+
 	}
 
 }
@@ -204,4 +242,48 @@ public class StringOperations {
   public static String join(CharSequence sep, CharSequence... elems)
   sep:区切り文字（空の場合は文字列をそのまま連結）
   elems:連結する文字列
+*/
+
+/*
+  指定された書式文字列に基づいて文字列を整形するには「formatメソッド」を利用する。
+*/
+
+/*
+  formatメソッド
+  public static String format([Locale loc,] String format, Object... args)
+  loc:整形に利用するスクロール
+  format:書式文字列
+  args:書式に割り当てる値
+*/
+
+/*
+  引数format（書式文字列）には「書式指定子」とよばれるプレイスホルダーを埋め込むことができる。
+  「プレイスホルダー」とは引数args...で指定された文字列を埋め込む場所である。
+*/
+
+/*
+  書式指定子
+  %[index$][flag][align][.prec]conversion
+  index:引数argsの何番目の値を埋め込むか（先頭は0番目）
+  flag:出力形式
+  align:出力する最小の文字数
+  prec:桁数（意味はconversionによって異なる）
+  conversion:（引数argsの型）
+*/
+
+/*
+  引数conversionの主な値
+  分類        |変換文字|概要
+  一般        |b,B     |ブール地
+              |h,H     |ハッシュコードを16進数に変換
+              |s,S     |文字列
+  文字        |c,C     |Unicode文字
+  整数        |d       |10進整数
+              |o       |8進整数
+              |x,X     |16進整数
+  不動小数点  |e,E     |浮動小数点数形式の10進数
+              |f       |10進小数点数
+  日付/時刻   |t,T     |日付/時刻変換文字の接頭辞
+  パーセント  |%       |リテラル'%'(u0025)
+  行区切り文字|n       |プラットフォーム固有の行区切り文字
 */
