@@ -1,17 +1,18 @@
 package to.msn.wings.selflearn.chap05;
 
-import java.util.regex.Pattern;
-
 public class RegularExpression {
 
 	public static void main(String[] args) {
+		/*
 		var tel = new String[] { "080-0000-0000", "084-000-0000", "184-0000" };
 	    var rx = "\\d{2,4}-\\d{2,4}-\\d{4}";
 	    for (var t : tel) {
 	      System.out.println(Pattern.matches(rx, t) ? t : "アンマッチ");
 	      // System.out.println(t.matches(rx) ? t : "アンマッチ");
 	    }
-	    
+	    */
+		
+		/*
 	    var str = "会社の電話は0123-99-0000です。自宅は000-123-4567だよ。";
 	    var ptn = Pattern.compile("(\\d{2,4})-(\\d{2,4})-(\\d{4})");
 	    var match = ptn.matcher(str);
@@ -24,6 +25,43 @@ public class RegularExpression {
 	      System.out.println("加入者番号：" + match.group(3));
 	      System.out.println("-----");
 	    }
+	    */
+		
+		/*  大文字/小文字を区別しない
+		var str = "仕事用はwings@example.comです。プライベート用はYAMA@example.comです。";
+	    var ptn = Pattern.compile("[a-z0-9.!#$%&'*+/=?^_{|}~-]+@[a-z0-9-]+(\\.[a-z0-9-]+)*", Pattern.CASE_INSENSITIVE);
+	    var match = ptn.matcher(str);
+	    while (match.find()) {
+	      System.out.println(match.group());
+	    }
+	    //結果：wings@example.com
+	    //      YAMA@example.com
+	     */
+		
+		/*  マルチライン（複数行）モードを有効化する（マルチラインモードとは「^」「$」を変更するためのモード）。
+		var str = "10人のインディアン。\n1年生になったら";
+	    // var ptn = Pattern.compile("^\\d*");
+	    var ptn = Pattern.compile("^\\d*", Pattern.MULTILINE);
+	    var match = ptn.matcher(str);
+	    while (match.find()) {
+	      System.out.println(match.group());
+	    }
+	    //結果：10
+        //      1
+	    */
+		
+		/*  DOTALLモードを有効化する（DOTALLモードとは「.」の挙動を変更するためのモード）。
+		var str = "初めまして。\nよろしくお願いします。";
+        // var ptn = Pattern.compile("^.+");
+        var ptn = Pattern.compile("^.+", Pattern.DOTALL);
+        var match = ptn.matcher(str);
+        while (match.find()) {
+          System.out.println(match.group());
+        }
+        //結果：初めまして。
+        //      よろしくお願いします。
+	    */
+	    
 
 	}
 
@@ -88,4 +126,20 @@ public class RegularExpression {
 /*
   正規表現の中で()でくくられた部分（サブマッチパターン）にマッチした部分文字列のことを
   「サブマッチ文字列（グループ、キャプチャグループ）」という。
+*/
+
+/*
+  Patternクラスをインスタンス化する際には、第2引数に検索オプション（マッチフラグ）を渡すことができる。
+*/
+
+/*
+  主なマッチフラグ（Patternクラスのメンバー）
+  設定値          |概要
+  CASE_INSENSITIVE|大文字小文字を区別しない
+  MULTILINE       |複数行モードを有効化
+  DOTALL          |「.」が行末記号を含む任意の文字にマッチ
+  UNICODE_CASE    |Unicodeに準拠した大文字と小文字を区別しないマッチングを有効化
+  UNIX_LINES      |「\n」だけを行末記号として扱う
+  LITERAL         |パターンをリテラル文字として解析（「\d」などの意味を無効化）
+  COMMENTS        |空白とコメントを有効化
 */
