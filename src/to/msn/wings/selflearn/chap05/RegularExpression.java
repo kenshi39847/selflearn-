@@ -121,6 +121,7 @@ public class RegularExpression {
 	    }
 	    */
 		
+		/*
 		var re1 = Pattern.compile("いろ(?=はに)");
 	    var re2 = Pattern.compile("いろ(?!はに)");
 	    var re3 = Pattern.compile("(?<=。)いろ");
@@ -135,6 +136,20 @@ public class RegularExpression {
 	    match(re3, msg2);
 	    match(re4, msg1);
 	    match(re4, msg2);
+	    */
+	    
+		/*
+	    var str = "サポートサイトはhttps://www.wings.msn.to/です。";
+	    System.out.println(str.replaceAll(
+	        "(?i)http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\\\w ./?%&=-]*)?",
+	        "<a href=\"$0\">$0</a>"));
+	    //結果：サポートサイトは<a href="https://www.wings.msn.to/">https://www.wings.msn.to/</a>です。
+	     */
+		
+		var str = "仕事用はwings@example.comです。";
+	    System.out.println(str.replaceAll(
+	        "(?i)(?<localName>[a-z0-9.!#$%&'*+/=?^_{|}~-]+)@(?<domain>[a-z0-9-]+(?:\\.[a-z0-9-]+)*)",
+	        "${domain}の${localName}"));
 
 	}
 
@@ -249,4 +264,17 @@ public class RegularExpression {
   A(?!B)  |否定的先読み（Aの直後にBが続かない場合だけAにマッチ）
   (?<=B)A |肯定的後読み（Aの直前にBがある場合にだけAにマッチ）
   (?<!B)A |否定的後読み（Aの直前にBがない場合にだけAにマッチ）
+*/
+
+/*
+  Stringクラスの「replaceAllメソッド」を利用し、正規表現にマッチした文字列を置き換えることができる。
+  また、replaceAllメソッドはマッチしたすべての文字列を置き換えと対象とする。
+  もしも最初の1つだけを置き換える場合は「replaceFirstメソッド」を利用する。
+*/
+
+/*
+  replaceAllメソッド
+  public String replaceAll(String regex, String rep)
+  regex:正規表現
+  rep:置き換え後の文字列
 */
