@@ -146,10 +146,18 @@ public class RegularExpression {
 	    //結果：サポートサイトは<a href="https://www.wings.msn.to/">https://www.wings.msn.to/</a>です。
 	     */
 		
+		/*
 		var str = "仕事用はwings@example.comです。";
 	    System.out.println(str.replaceAll(
 	        "(?i)(?<localName>[a-z0-9.!#$%&'*+/=?^_{|}~-]+)@(?<domain>[a-z0-9-]+(?:\\.[a-z0-9-]+)*)",
 	        "${domain}の${localName}"));
+	    */
+	    
+	    var str = "にわに3わうらにわに51わにわとりがいる";
+	    var re = Pattern.compile("\\d{1,}わ");
+	    var result = re.split(str);
+	    System.out.println(String.join(" ", result));
+	    //結果：にわに うらにわに にわとりがいる
 
 	}
 
@@ -277,4 +285,15 @@ public class RegularExpression {
   public String replaceAll(String regex, String rep)
   regex:正規表現
   rep:置き換え後の文字列
+*/
+
+/*
+  正規表現で文字列を分割するには、Patternクラスの「splitメソッド」を利用する。
+*/
+
+/*
+  splitメソッド
+  public String[] split(CharSequence input [,int limit])
+  input:分割する文字数
+  limit:最大の分割数
 */
