@@ -1,8 +1,6 @@
 package to.msn.wings.selflearn.chap05;
 
-import java.time.LocalDate;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
 
 public class DateAndTimeOperations {
@@ -44,15 +42,24 @@ public class DateAndTimeOperations {
 	    System.out.println(zdt);  //結果：2019-01-10T10:20:30.000000999+09:00[Asia/Tokyo]
 	    */
 		
+		/*
 		System.out.println(LocalDate.parse(
 		        "2019-01-10", DateTimeFormatter.ISO_DATE));  //結果：2019-01-10
-		    System.out.println(LocalDate.parse(
+		System.out.println(LocalDate.parse(
 		        "2019-123", DateTimeFormatter.ISO_ORDINAL_DATE));  //結果：2019-05-03
-		    System.out.println(LocalDate.parse(
+		System.out.println(LocalDate.parse(
 		        "2019-W40-5", DateTimeFormatter.ISO_WEEK_DATE));  //結果：2019-10-04
-		    System.out.println(ZonedDateTime.parse(
-		      "2019-01-10T10:20:30.000000999+09:00[Asia/Tokyo]",
-		      DateTimeFormatter.ISO_DATE_TIME));  //結果：2019-01-10T10:20:30.000000999+09:00[Asia/Tokyo]
+		System.out.println(ZonedDateTime.parse(
+		        "2019-01-10T10:20:30.000000999+09:00[Asia/Tokyo]",
+		        DateTimeFormatter.ISO_DATE_TIME));  //結果：2019-01-10T10:20:30.000000999+09:00[Asia/Tokyo]
+		*/
+		
+		var dt1 = LocalDateTime.of(2018, 12, 31, 10, 20, 30);
+	    var dt2 = LocalDateTime.of(2019, 1, 10, 10, 20, 30);
+
+	    System.out.println(dt1.equals(dt2));
+	    System.out.println(dt1.isBefore(dt2));
+	    System.out.println(dt1.isAfter(dt2));
 
 	}
 
@@ -79,3 +86,15 @@ public class DateAndTimeOperations {
   text:解析対象の日付/時刻文字列
   formatter:解析に利用するフォーマッター
 */
+
+/*
+  日付/時刻同士を比較するには、「equals/isBefore/isAfterメソッド」を利用する。
+  
+  equals/isBefere/isAfterメソッド
+  public boolean equals(object other)
+  public boolean isBefore(T other)
+  public boolean isAfter(T other)
+  other:比較する日時オブジェクト
+  T:日時オブジェクトの型
+*/
+
