@@ -1,11 +1,8 @@
 package to.msn.wings.selflearn.chap05;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
-import java.util.Locale;
+import java.time.Period;
 
 
 public class DateAndTimeOperations {
@@ -115,6 +112,7 @@ public class DateAndTimeOperations {
 	    System.out.println(dt2.format(DateTimeFormatter.ofPattern("Y年L月d日（E）a K時m分s秒 (z)")));  //結果：2019年1月1日（火）午前 10時20分30秒 (JST)
 	    */
 		
+		/*
 		var locale = Locale.JAPAN;
 	    // var locale = Locale.US;
 	    var zone = ZoneId.of("Asia/Tokyo");
@@ -122,9 +120,21 @@ public class DateAndTimeOperations {
 	    var dt = ZonedDateTime.of(LocalDateTime.now(), zone);
 
 	    System.out.println(dt.format(DateTimeFormatter.ofLocalizedDateTime(
-	      FormatStyle.FULL).withLocale(locale)));
+	      FormatStyle.FULL).withLocale(locale)));  //結果：2023年12月5日火曜日 12時24分05秒 日本標準時
 	    System.out.println(dt.format(DateTimeFormatter.ofPattern(
-	      "Y年L月d日（E）a K時m分s秒 (z)", locale)));
+	      "Y年L月d日（E）a K時m分s秒 (z)", locale)));  //結果：2023年12月5日（火）午後 0時24分5秒 (JST)
+	    */
+	    
+	    var dt1 = LocalDateTime.of(2018, 12, 31, 0, 0, 0);
+	    var dt2 = LocalDateTime.of(2020, 3, 3, 10, 20, 30);
+
+	    var period = Period.between(dt1.toLocalDate(), dt2.toLocalDate());
+	    System.out.println("日付の差：" +
+	      period.getYears() + "年" + period.getMonths() + "ヶ月" +
+	      period.getDays() + "日間");  //結果：日付の差：1年2ヶ月3日間
+
+	    var duration = Duration.between(dt1, dt2);
+	    System.out.println("時間の差：" + duration.toHours() + "時間");  //結果：時間の差：10282時間
 	}
 
 }
@@ -200,4 +210,29 @@ public class DateAndTimeOperations {
   public static DateTimeFormatter ofPattern(String pattern [,Locale locale])
   pattern:パターン文字列
   locale:ロケール
+*/
+
+/*
+  Period/Durationクラスの「between静的メソッド」を利用する。
+  Periodは日付間隔を、Durationは時間間隔をそれぞれ表すためのクラスである。
+  
+  betweenメソッド
+  public static Period between(LocalDate start, LocalDate end)
+  public static Duration between(Temporal start, Temporal end)
+  start:開始日時
+  end:終了日時
+*/
+
+/*
+  間隔を取得するためのメソッド
+  クラス  |メソッド        |概要
+  Period  |int getYears()  |年数
+          |int getMonths() |月数
+          |int getDays()   |日数
+  Duration|long toDays()   |日数
+          |long toHours()  |時間数
+          |long toMinutes()|分数
+          |long toSeconds()|秒数
+          |long toMillis() |ミリ秒数
+          |long toNanos()  |ナノ秒数
 */
