@@ -1,6 +1,7 @@
 package to.msn.wings.selflearn.chap05;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoField;
 
 
 public class DateAndTimeOperations {
@@ -54,12 +55,42 @@ public class DateAndTimeOperations {
 		        DateTimeFormatter.ISO_DATE_TIME));  //結果：2019-01-10T10:20:30.000000999+09:00[Asia/Tokyo]
 		*/
 		
+		/*
 		var dt1 = LocalDateTime.of(2018, 12, 31, 10, 20, 30);
 	    var dt2 = LocalDateTime.of(2019, 1, 10, 10, 20, 30);
 
-	    System.out.println(dt1.equals(dt2));
-	    System.out.println(dt1.isBefore(dt2));
-	    System.out.println(dt1.isAfter(dt2));
+	    System.out.println(dt1.equals(dt2));  //結果：false
+	    System.out.println(dt1.isBefore(dt2));  //結果：true
+	    System.out.println(dt1.isAfter(dt2));  //結果：false
+	    */
+		
+		/*
+		var dt = LocalDateTime.of(2019, 1, 10, 10, 20, 30, 123);
+	    System.out.println(dt.getYear() + "年" +
+	      dt.getMonthValue() + "月" +
+	      dt.getDayOfMonth() + "日 " +
+	      dt.getDayOfWeek() + " " +
+	      dt.getHour() + "時" +
+	      dt.getMinute() + "分"
+	      + dt.getSecond() + "秒"
+	      + dt.getNano() + "ナノ秒");  //結果：2019年1月10日 THURSDAY 10時20分30秒123ナノ秒
+	    System.out.println("月名は" + dt.getMonth() +
+	      " 今年" + dt.getDayOfYear() + "日目");  //結果：月名はJANUARY 今年10日目
+	    */
+		
+		var dt = LocalDateTime.of(2019, 1, 10, 10, 20, 30, 123);
+	    var week = new String[] {
+	        "日曜日", "月曜日", "火曜日", "水曜日",
+	        "木曜日", "金曜日", "土曜日"};
+
+	    System.out.println(dt.get(ChronoField.YEAR) + "年" +
+	        dt.get(ChronoField.MONTH_OF_YEAR) + "月" +
+	        dt.get(ChronoField.DAY_OF_MONTH) + "日" +
+	        week[dt.get(ChronoField.DAY_OF_WEEK) -1] + " "+
+	        dt.get(ChronoField.HOUR_OF_DAY) + "時" +
+	        dt.get(ChronoField.MINUTE_OF_HOUR) + "分" +
+	        dt.get(ChronoField.SECOND_OF_MINUTE) + "秒" +
+	        dt.get(ChronoField.NANO_OF_SECOND) + "ナノ秒");  //結果：2019年1月10日水曜日 10時20分30秒123ナノ秒
 
 	}
 
@@ -88,7 +119,8 @@ public class DateAndTimeOperations {
 */
 
 /*
-  日付/時刻同士を比較するには、「equals/isBefore/isAfterメソッド」を利用する。
+  日付/時刻同士（dt1/dt2）を比較するには、「equals/isBefore/isAfterメソッド」を利用する。
+  isBeforeはdt1<dt2であるか、isAfterはdt1>dt2であるかを判定する。
   
   equals/isBefere/isAfterメソッド
   public boolean equals(object other)
@@ -98,3 +130,6 @@ public class DateAndTimeOperations {
   T:日時オブジェクトの型
 */
 
+/*
+  任意の日付/時刻要素を取得するための「getメソッド」を利用する。
+*/
