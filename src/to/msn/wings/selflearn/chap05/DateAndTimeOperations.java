@@ -1,7 +1,11 @@
 package to.msn.wings.selflearn.chap05;
 
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoField;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.util.Locale;
 
 
 public class DateAndTimeOperations {
@@ -78,6 +82,7 @@ public class DateAndTimeOperations {
 	      " 今年" + dt.getDayOfYear() + "日目");  //結果：月名はJANUARY 今年10日目
 	    */
 		
+		/*
 		var dt = LocalDateTime.of(2019, 1, 10, 10, 20, 30, 123);
 	    var week = new String[] {
 	        "日曜日", "月曜日", "火曜日", "水曜日",
@@ -91,7 +96,35 @@ public class DateAndTimeOperations {
 	        dt.get(ChronoField.MINUTE_OF_HOUR) + "分" +
 	        dt.get(ChronoField.SECOND_OF_MINUTE) + "秒" +
 	        dt.get(ChronoField.NANO_OF_SECOND) + "ナノ秒");  //結果：2019年1月10日水曜日 10時20分30秒123ナノ秒
+	    */
+	    
+		/*
+	    var dt1 = LocalDateTime.of(2019, 1, 10, 10, 20, 30);
+	    var dt2 = ZonedDateTime.of(2019, 1, 10, 10, 20, 30, 0, ZoneId.of("Asia/Tokyo"));
 
+	    System.out.println(dt1.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)));  //結果：2019年1月10日木曜日
+	    System.out.println(dt2.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG)));  //結果：2019年1月10日 10:20:30 JST
+	    System.out.println(dt1.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)));  //結果：2019/01/10
+	    System.out.println(dt2.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT)));  //結果：2019/01/10 10:20
+	    */
+		
+		/*
+		var dt1 = LocalDateTime.of(2019, 1, 1, 10, 20, 30);
+	    var dt2 = ZonedDateTime.of(2019, 1, 1, 10, 20, 30, 0, ZoneId.of("Asia/Tokyo"));
+	    System.out.println(dt1.format(DateTimeFormatter.ofPattern("y.MM.dd H:m:s")));  //結果：2019.01.01 10:20:30
+	    System.out.println(dt2.format(DateTimeFormatter.ofPattern("Y年L月d日（E）a K時m分s秒 (z)")));  //結果：2019年1月1日（火）午前 10時20分30秒 (JST)
+	    */
+		
+		var locale = Locale.JAPAN;
+	    // var locale = Locale.US;
+	    var zone = ZoneId.of("Asia/Tokyo");
+	    // var zone = ZoneId.of("America/Chicago");
+	    var dt = ZonedDateTime.of(LocalDateTime.now(), zone);
+
+	    System.out.println(dt.format(DateTimeFormatter.ofLocalizedDateTime(
+	      FormatStyle.FULL).withLocale(locale)));
+	    System.out.println(dt.format(DateTimeFormatter.ofPattern(
+	      "Y年L月d日（E）a K時m分s秒 (z)", locale)));
 	}
 
 }
@@ -132,4 +165,39 @@ public class DateAndTimeOperations {
 
 /*
   任意の日付/時刻要素を取得するための「getメソッド」を利用する。
+*/
+
+/*
+  日付/時刻を整形するには、「formatメソッド」を利用する。
+  
+  formatメソッド
+  public String format(DateTimeDormatter formatter)
+  formatter:整形に利用するフォーマッター
+*/
+
+/*
+  フォーマッター生成するためのメソッド（DateTimeDormatterクラスのメソッド）
+  メソッド                                                                |概要
+  DateTimeDormatter ofLocalizeDate(FormatStyle date)                      |ロケール固有の日付フォーマット
+  DateTimeDormatter ofLocalizeTime(FormatStyle time)                      |ロケール固有の時刻フォーマット
+  DateTimeDormatter ofLocalizeDateTime(FormatStyle dateTime)              |ロケール固有の日時フォーマット
+  DateTimeDormatter ofLocalizeDateTime(FormatStyle date, FormatStyle time)|ロケール固有の日付と時刻スタイルを持つフォーマット
+*/
+
+/*
+  整形のためのスタイル（FormatStyleクラスのメンバー）
+  フィールド|概要
+  FULL      |Thursday, November 15, 2018
+  LONG      |November 15, 2018
+  MEDIUM    |Nov 15, 2018
+  SHORT     |11/15/18
+*/
+
+/*
+  「ofPatternメソッド」で自作することもできる。
+  
+  ofPatternメソッド
+  public static DateTimeFormatter ofPattern(String pattern [,Locale locale])
+  pattern:パターン文字列
+  locale:ロケール
 */
