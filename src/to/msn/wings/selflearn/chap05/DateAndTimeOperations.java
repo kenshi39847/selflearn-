@@ -4,7 +4,6 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.Period;
 
-
 public class DateAndTimeOperations {
 
 	public static void main(String[] args) {
@@ -125,6 +124,7 @@ public class DateAndTimeOperations {
 	      "Y年L月d日（E）a K時m分s秒 (z)", locale)));  //結果：2023年12月5日（火）午後 0時24分5秒 (JST)
 	    */
 	    
+		/*
 	    var dt1 = LocalDateTime.of(2018, 12, 31, 0, 0, 0);
 	    var dt2 = LocalDateTime.of(2020, 3, 3, 10, 20, 30);
 
@@ -135,6 +135,21 @@ public class DateAndTimeOperations {
 
 	    var duration = Duration.between(dt1, dt2);
 	    System.out.println("時間の差：" + duration.toHours() + "時間");  //結果：時間の差：10282時間
+	    */
+		
+		/*
+	    var d = LocalDate.of(2019, 1, 10);
+	    System.out.println(d);  //結果：2019-01-10
+	    System.out.println(d.plus(3, ChronoUnit.YEARS));  //結果：2022-01-10
+	    System.out.println(d.minus(21, ChronoUnit.DAYS));  //結果：2018-12-20
+	    */
+		
+		var d = LocalDateTime.of(2019, 1, 10, 10, 20, 30);
+	    var period = Period.ofYears(3);
+	    var duration = Duration.parse("P21DT1H1M1S");
+	    System.out.println(d);  //結果：2019-01-10T10:20:30
+	    System.out.println(d.plus(period));  //結果：2022-01-10T10:20:30
+	    System.out.println(d.minus(duration));  //結果：2018-12-20T09:19:29
 	}
 
 }
@@ -235,4 +250,15 @@ public class DateAndTimeOperations {
           |long toSeconds()|秒数
           |long toMillis() |ミリ秒数
           |long toNanos()  |ナノ秒数
+*/
+
+/*
+  加算には「plusメソッド」、減算には「minusメソッド」を利用する。
+  
+  plus/minusメソッド
+  public T plus(long value, TemporalUnit unit)
+  public T minus(long value, TemporalUnit unit)
+  T:任意の日時オブジェクト
+  value:増減分
+  unit:単位
 */
