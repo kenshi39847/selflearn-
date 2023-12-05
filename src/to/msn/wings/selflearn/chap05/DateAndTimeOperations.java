@@ -1,9 +1,5 @@
 package to.msn.wings.selflearn.chap05;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.Period;
-
 public class DateAndTimeOperations {
 
 	public static void main(String[] args) {
@@ -144,12 +140,32 @@ public class DateAndTimeOperations {
 	    System.out.println(d.minus(21, ChronoUnit.DAYS));  //結果：2018-12-20
 	    */
 		
+		/*
 		var d = LocalDateTime.of(2019, 1, 10, 10, 20, 30);
 	    var period = Period.ofYears(3);
 	    var duration = Duration.parse("P21DT1H1M1S");
 	    System.out.println(d);  //結果：2019-01-10T10:20:30
 	    System.out.println(d.plus(period));  //結果：2022-01-10T10:20:30
 	    System.out.println(d.minus(duration));  //結果：2018-12-20T09:19:29
+	    */
+		
+		/*
+	    var cal = Calendar.getInstance();
+	    var dt1 = LocalDateTime.ofInstant(cal.toInstant(), ZoneId.systemDefault());
+	    var dt2 = OffsetDateTime.ofInstant(cal.toInstant(), ZoneId.systemDefault());
+	    var dt3 = ZonedDateTime.ofInstant(cal.toInstant(), ZoneId.systemDefault());
+	    System.out.println(dt1);  //結果：2023-12-05T14:09:03.846
+	    System.out.println(dt2);  //結果：2023-12-05T14:09:03.846+09:00
+	    System.out.println(dt3);  //結果：2023-12-05T14:09:03.846+09:00[Asia/Tokyo]
+	    */
+		
+		/*
+		var dt = LocalDateTime.of(2019, 1, 10, 10, 20, 30, 123456789);
+	    var d = Date.from(dt.toInstant(ZoneOffset.of("+09:00")));
+	    var cal = Calendar.getInstance();
+	    cal.setTime(d);
+	    System.out.println(cal);
+	    */
 	}
 
 }
@@ -261,4 +277,27 @@ public class DateAndTimeOperations {
   T:任意の日時オブジェクト
   value:増減分
   unit:単位
+*/
+
+/*
+  Date-time APIはJava8で導入された比較的新しいライブラリだが、従来のコードではCalendarクラスが利用されている。
+  そこで、Date-Time APIとCalendar間を取り持つための手段もある。
+  1.CalendarからDate-Time APIの変換
+  変換にはまずtoInstantメソッドでInstantオブジェクトを生成するのが基本で、
+  Instantは日付/時刻値を1970年1月1日からの経過時間で保持するクラスである。
+  InstantオブジェクトからXxxxxDateTimeオブジェクトを生成するのはofInstantメソッドである。
+  
+  ofInstantメソッド
+  public static T ofInstant(Instant instant, ZoneId zone)
+  T:扱う日時オブジェクト
+  instant:変換対象のインスタント
+  zone:タイムゾーン
+  
+  ofメソッド
+  public static ZoneId of(String id)
+  id:タイムゾーン
+  2.Date-Time APIからCalendarの変換
+  toInstantメソッドでInstantオブジェクトを生成する点は1と同じで、生成したInstantオブジェクトはDate.fromメソッドで受け取り、
+  まずはDateオブジェクトを生成しなければならない。
+  Calendarを生成するにはsetTimeメソッドを使ってDateからCalendarへ値を変更する。
 */
