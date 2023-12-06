@@ -15,6 +15,17 @@ public class Stream {
 		}
 		*/	
 
+		/*
+		try (var reader = Files.newBufferedReader(
+			Paths.get("C:\\data\\sample.txt"))) {
+			var line = "";
+			while ((line = reader.readLine()) != null) {
+			  System.out.println(line);
+			}
+	    } catch (IOException e) {
+			  e.printStackTrace();
+	    }
+	    */
 	}
 
 }
@@ -50,4 +61,15 @@ public class Stream {
   try(リソース生成式){
     ...リソースの操作...
   }
+*/
+
+/*
+  テキストファイルの読み込みで利用するのは「BufferedReaderクラス」である。
+  ファイルを開くとテキストを先頭から順に読み込んでいくのがreadLineメソッドの役割である。
+  readLineは、ファイルポインターを1行ずつ進めながら現在行を読み、文字列として返すメソッドである。
+  「ファイルポインター」とは、ファイルを読み書きしている現在位置を表す目印のようなものである。
+  
+  public static BufferedReader newbufferedReader(Path path [,Charset cs])
+  path:ファイルのパス
+  cs:文字コード
 */
