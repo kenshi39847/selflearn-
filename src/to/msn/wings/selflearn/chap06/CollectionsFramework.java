@@ -32,3 +32,12 @@ public class CollectionsFramework {
   |Queue(Deque)    |ArrayDeque   |両端キュー                            |
   |                |LinkedList   |ListインターフェースのLinkedListと同一|
 */
+
+/*
+  コレクションのインスタンス化
+  インターフェース型<要素型> = new 実装クラス型<>(引数, ...)
+  
+  コレクションは、一般的に上記の構文でインスタンス化する。
+  例えば、ArrayListクラスをインスタンス化するには、以下のようなコードになる。
+  List<String> data = new ArrayList<>();
+*/
