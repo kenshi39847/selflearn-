@@ -39,16 +39,16 @@ public class List {
 	  */
 		
 	  var list = new LinkedList<String>(Arrays.asList("うさぎ", "たつ", "へび"));
-	  System.out.println(list);
+	  System.out.println(list);                //結果：[うさぎ, たつ, へび]
 
 	  list.addFirst("とら");
 	  list.addLast("うま");
-	  System.out.println(list);
-	  System.out.println(list.getFirst());
-	  System.out.println(list.getLast());
-	  System.out.println(list.removeFirst());
-	  System.out.println(list.removeLast());
-	  System.out.println(list);
+	  System.out.println(list);                //結果：[とら, うさぎ, たつ, へび, うま]
+	  System.out.println(list.getFirst());     //結果：とら
+	  System.out.println(list.getLast());      //結果：うま
+	  System.out.println(list.removeFirst());  //結果：とら
+	  System.out.println(list.removeLast());   //結果：うま
+	  System.out.println(list);                //結果：[うさぎ, たつ, へび]
 
 	}
 
