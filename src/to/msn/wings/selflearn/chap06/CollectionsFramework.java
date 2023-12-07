@@ -2,6 +2,7 @@ package to.msn.wings.selflearn.chap06;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class CollectionsFramework {
     
@@ -41,12 +42,29 @@ public class CollectionsFramework {
 	    System.out.println(Arrays.toString(data));  //結果：[バラ, ひまわり, あさがお]
 	    */
 		
+		/*
 		var data = new ArrayList<String>(Arrays.asList("バラ", "ひまわり", "あさがお"));
 	    var strs = new String[data.size()];
 	    data.toArray(strs);
 	    data.set(0, "チューリップ");
 	    System.out.println(Arrays.toString(strs));  //結果：[バラ, ひまわり, あさがお]
 	    System.out.println(data);                    //結果：[チューリップ, ひまわり, あさがお]
+	    */
+		
+		/*
+	    var data = new ArrayList<String>(Arrays.asList("バラ", "ひまわり", "あさがお"));
+	    var udata = Collections.unmodifiableList(data);
+	    udata.set(0, "チューリップ");  //結果：エラー
+	    udata.add("さくら");           //結果：エラー
+	    */
+		
+		var data = new ArrayList<StringBuilder>(Arrays.asList(
+		  new StringBuilder("ひふみ"),
+		  new StringBuilder("よいむ"),
+		  new StringBuilder("なやこ")));
+		var udata = Collections.unmodifiableList(data);
+		udata.get(0).append("いちにさん");
+		System.out.println(udata);  //結果：[ひふみいちにさん, よいむ, なやこ]
 
 	}
 
@@ -158,4 +176,14 @@ public class CollectionsFramework {
   ・指定の配列（引数a）にすべての要素が収まるならばそのまますべての要素を設定
   ・すべての要素が収まらない場合は引数aと同じ型の配列を生成してからすべての要素を設定
   ・コレクションの要素を配列の要素型に変換できない場合はArrayStoreException例外を発生
+*/
+
+/*
+  Collectionsクラスを利用することで、特殊な形式のコレクションを簡単に作成できる。
+  1.変換不能コレクションへの変換
+  「unmodifiableXxxxxメソッド」を利用する。
+  2.変更不能コレクションの生成
+  「ofメソッド」を利用する。
+  3.空コレクションの生成
+  4.同期化コレクションの生成
 */
