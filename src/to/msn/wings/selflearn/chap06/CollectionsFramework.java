@@ -1,11 +1,13 @@
 package to.msn.wings.selflearn.chap06;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class CollectionsFramework {
-
+    
 	public static void main(String[] args) {
 		
+		/*
 		var data = new ArrayList<String>() {  //・・・匿名クラス
 		  {                                   //・・・初期化ブロック
 		    add("バラ");
@@ -16,6 +18,35 @@ public class CollectionsFramework {
 		for (var s : data) {
 		  System.out.println(s);
 		}
+		*/
+		
+		/*
+		var data = new String[] { "バラ", "ひまわり", "あさがお"};
+	    var list = Arrays.asList(data);
+	    list.set(0, "チューリップ");  //asListメソッドで変換したリストはあくまでリストの皮をかぶった配列であるので、リストへの変更はそのまま元の配列に影響を及ぼす
+	    System.out.println(list);                    //結果：[チューリップ, ひまわり, あさがお]
+	    System.out.println(Arrays.toString(data));  //結果：[チューリップ, ひまわり, あさがお]
+	    //list.add("さくら");  //結果：エラー  //リストへの追加/削除はUnsupportedOperationException例外となる
+	    //list.remove(0);      //結果：エラー    （配列のサイズは変更できない）
+	    */
+		
+		/*
+		var data = new String[] { "バラ", "ひまわり", "あさがお"};
+	    var list = new ArrayList<String>();
+	    Collections.addAll(list, data);
+	    list.set(0, "チューリップ");
+	    list.add("さくら");
+	    list.remove(1);
+	    System.out.println(list);                    //結果：[チューリップ, あさがお, さくら]
+	    System.out.println(Arrays.toString(data));  //結果：[バラ, ひまわり, あさがお]
+	    */
+		
+		var data = new ArrayList<String>(Arrays.asList("バラ", "ひまわり", "あさがお"));
+	    var strs = new String[data.size()];
+	    data.toArray(strs);
+	    data.set(0, "チューリップ");
+	    System.out.println(Arrays.toString(strs));  //結果：[バラ, ひまわり, あさがお]
+	    System.out.println(data);                    //結果：[チューリップ, ひまわり, あさがお]
 
 	}
 
@@ -95,4 +126,36 @@ public class CollectionsFramework {
   while (ite.hasPrevious()) {
     System.out.println(ite.previous());
   }
+*/
+
+/*
+  オブジェクトの集合体を扱う場合、まずは配列よりもコレクションを利用すべきだが、
+  実際の開発では利用しているライブラリが配列を利用しているなどで、配列を利用せざるを得ない状況がある。
+  1.配列→リスト
+  「Arrays.asListメソッド」を利用する。
+  
+  asListメソッド
+  public static <T> List <T> asList(T... a)
+  a:変換元の配列（可変長引数）
+  
+  2.配列→リスト（コピー版）
+  もしも、変換後のリストに対して、要素を追加/削除したいならば、配列をコピーし新規にリストを作成し、
+  これには「Collections.addAll静的メソッド」を利用する。
+  
+  addAllメソッド
+  public static <T> boolean addAll(Collection<? super T> c, T... elements)
+  c:コピー先のコレクション
+  elements:コピーする値
+  
+  3.コレクション→配列
+  コレクション実装クラスの「toArrayメソッド」を利用する。
+  
+  toArrayメソッド
+  public <T> T[] toArray([T[] a])
+  a:変換先の配列
+  
+  toArrayメソッドは以下のルールで動作する。
+  ・指定の配列（引数a）にすべての要素が収まるならばそのまますべての要素を設定
+  ・すべての要素が収まらない場合は引数aと同じ型の配列を生成してからすべての要素を設定
+  ・コレクションの要素を配列の要素型に変換できない場合はArrayStoreException例外を発生
 */
