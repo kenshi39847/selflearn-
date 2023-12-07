@@ -1,5 +1,8 @@
 package to.msn.wings.selflearn.chap06;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+
 public class List {
 
 	public static void main(String[] args) {
@@ -34,6 +37,18 @@ public class List {
 	  var data = list.toArray();
 	  System.out.println(Arrays.toString(data));  //結果：[100, 30, 60, 5, 6]
 	  */
+		
+	  var list = new LinkedList<String>(Arrays.asList("うさぎ", "たつ", "へび"));
+	  System.out.println(list);
+
+	  list.addFirst("とら");
+	  list.addLast("うま");
+	  System.out.println(list);
+	  System.out.println(list.getFirst());
+	  System.out.println(list.getLast());
+	  System.out.println(list.removeFirst());
+	  System.out.println(list.removeLast());
+	  System.out.println(list);
 
 	}
 
@@ -47,4 +62,10 @@ public class List {
 /*
   ArrayListは、内部的には配列を利用したデータ構造である。ただし、配列とは異なり後からでもサイズを変更できる（=要素の追加/削除が可能）。
   その性質上、インデックス値による値の読み書き（ランダムアクセス）性能には優れる。
+*/
+
+/*
+  LinkedListは、要素同士を双方向のリンクで参照する二重リンクリストの実装である。
+  その性質上、要素の挿入/削除は高速である。ArrayListとは異なり、挿入/削除にあたって要素の移動が不要で、前後リンクの付け替えだけで済むからである。
+  ただし、一般的には挿入/削除に先立って要素位置の検索が加わるはずなので、オーバーヘッドも考慮しなければならない。
 */
