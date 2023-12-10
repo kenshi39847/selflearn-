@@ -24,3 +24,11 @@ public class Method {
   ...メソッドの本体...
 }
 */
+
+/*
+メソッド名は識別子の命名ルールに従うのはこれまでと同じである。
+加えて、構文規則ではないが、メソッドとしての役割を把握できるような命名を意識する。
+具体的にはaddElementのように「動詞 + 名詞」の形式で命名することをおすすめする。
+例）メソッド名でよく利用する動詞
+add,get,insert,begin,end,start,stop,remove,delete,set,open,close
+*/
