@@ -26,7 +26,6 @@ public class Chap04Practice3_2 {
 			i++;
 		}
 		System.out.println("合計が1000を超えるのは、1～" + i + "を加算したときです。");
-
 	}
 
 }
