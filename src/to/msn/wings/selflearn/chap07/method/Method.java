@@ -3,10 +3,12 @@ package to.msn.wings.selflearn.chap07.method;
 public class Method {
 
 	public static void main(String[] args) {
+		/*
 		var p = new Person();
 		p.name = "山田太郎";
 		p.age = 30;
 		System.out.println(p.show());
+		*/
 
 	}
 
@@ -47,4 +49,15 @@ add,get,insert,begin,end,start,stop,remove,delete,set,open,close
 
 (3)関連する引数は近接させる
 例えば、widthとheight、xとyのように意味的に関節する引数は隣接させる。
+*/
+
+/*
+引数がメソッドの入口であるとするならば、「戻り値（返り値）」はメソッドの出口で、メソッドが処理した結果を表す。
+戻り値は「return命令」によって表す。
+
+return命令
+return 戻り値
+
+一般的には、return命令はメソッドの末尾、もしくはメソッドの途中で呼び出す場合にはif/switchなどの条件分岐構文とセットで利用する。
+戻り値がないメソッドでは、return命令は省略してもよい。その場合、メソッド定義の戻り値の型には、特別な型としてvoidを指定する。
 */
