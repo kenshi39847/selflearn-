@@ -68,3 +68,16 @@ public,protected,private,static,abstract,final,synchronized,strictfp,native
 
 アクセス修飾子を省略した場合には、フィールドと同じくパッケージプライベートの扱いとなる。
 */
+
+/*
+「this」はメソッドなどの配下で暗黙的に（=宣言せずに）利用できる特別な変数で、現在のオブジェクトを表す。
+例）
+public class Person {
+	public String name;
+	public int age;
+	
+	public void show() {
+		System.out.printf("%s（%d歳）です。\n", this.name, this.age);
+	}
+}
+*/
