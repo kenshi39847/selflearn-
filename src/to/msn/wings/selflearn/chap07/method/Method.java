@@ -81,3 +81,19 @@ public class Person {
 	}
 }
 */
+
+/*
+同じクラスに同名のフィールドが存在することは許されないが、同じ名前のメソッドは
+・引数のデータ型
+・引数の個数
+が異なっている場合に限って許容される。
+フィールドが名前だけで許容されるのに対して、メソッドは「名前、引数の型/並び」のセットで識別されるからである。
+そして、名前は同じで、引数の型/並びだけが異なるメソッドを複数定義することをメソッドの「オーバーロード」という。
+例）
+・引数の型が異なる
+public static int abs(int a)
+public static float abs (float a)
+・引数の個数が異なる
+public int indexOf(String str)
+public int indexOf(String str, int index)
+*/
