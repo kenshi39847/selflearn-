@@ -3,7 +3,9 @@ package to.msn.wings.selflearn.chap07.scope;
 public class Scope {
 
 	public static void main(String[] args) {
-		
+		var s = new ScopeBasic();
+		System.out.println(s.show());
+		System.out.println(s.date);
 
 	}
 
