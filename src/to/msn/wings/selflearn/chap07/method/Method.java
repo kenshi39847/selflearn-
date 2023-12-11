@@ -61,3 +61,10 @@ return 戻り値
 一般的には、return命令はメソッドの末尾、もしくはメソッドの途中で呼び出す場合にはif/switchなどの条件分岐構文とセットで利用する。
 戻り値がないメソッドでは、return命令は省略してもよい。その場合、メソッド定義の戻り値の型には、特別な型としてvoidを指定する。
 */
+
+/*
+メソッドでは、以下のような修飾子を指定できる。
+public,protected,private,static,abstract,final,synchronized,strictfp,native
+
+アクセス修飾子を省略した場合には、フィールドと同じくパッケージプライベートの扱いとなる。
+*/
