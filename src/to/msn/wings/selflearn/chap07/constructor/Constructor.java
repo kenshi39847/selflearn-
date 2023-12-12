@@ -8,8 +8,10 @@ public class Constructor {
 	    System.out.println(p.show());
 	    */
 		
+		/*
 		var p = new Person();
 		p.show();
+		*/
 
 	}
 
@@ -65,4 +67,10 @@ StringBuilder(),StringBuilder(String str),StringBuilder(int capacity)
 コンストラクターの呼び出し（thisキーワード）
 this(引数, ...)
 構文そのものは難しくないが、thisの呼び出しはコンストラクターの先頭で記述する。
+*/
+
+/*
+class {...}の直下に書かれた名無しのブロック({...})は、インスタンス化のタイミングでコンストラクターよりも先に実行される。
+このような名無しのブロックを「初期化ブロック」という。
+基本的に複数のコンストラクターに共通するコードを切り出すのが初期化ブロックの役割である。
 */
