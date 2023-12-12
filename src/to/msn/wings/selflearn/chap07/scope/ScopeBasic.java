@@ -5,7 +5,7 @@ public class ScopeBasic {
 	
 	public String show() {
 		var date = "ローカル";
-		//return date;
+		return date;
 		//return this.date;
 	}
 
