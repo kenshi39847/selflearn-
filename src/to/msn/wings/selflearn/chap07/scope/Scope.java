@@ -9,8 +9,28 @@ public class Scope {
 		System.out.println(s.date);
 		*/
 		
+		/*
 		var s = new ScopeStrict();
 	    s.show();
+	    */
+		
+		/*
+		{
+		    var data = "ブロックスコープ";
+		}
+		    var data = "ローカルスコープ";
+		    System.out.println(data);
+		*/
+		
+		{
+		    var data = "ブロックスコープ";
+		    System.out.println(data);
+		}
+
+		{
+		    var data = "ブロックスコープ2";
+		    System.out.println(data);
+		}
 
 	}
 
@@ -39,4 +59,10 @@ public class ScopeStrict {
 }
 str1を参照している時点で、str1はまだ宣言されていないからであり、これが変数が「宣言された位置から有効」という意味である。
 ただし、メソッド/コンストラクターからの参照は例外で、フィールドの宣言開始位置に関わらず、どこからでも参照できる。
+*/
+
+/*
+ローカルスコープよりもさらに小さなスコープ単位が、「ブロックスコープ」で、
+if、while/for、tryなどの制御ブロックで宣言された変数は、そのブロックの配下でしかアクセスできない。
+ただし、ブロックスコープの変数は、ローカル変数の一種で、上位ローカル変数と同名のブロックスコープ変数を宣言することはできない。
 */
