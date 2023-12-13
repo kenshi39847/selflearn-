@@ -12,6 +12,18 @@ public class ClassMethodAndClassField {
 		System.out.println(Figure.pi);
 		Figure.getCircleArea(5);
 		*/
+		
+		/*クラス定数
+		System.out.println(MyApp.BOOK_TITLE);
+		//MyApp.BOOK_TITLE = "本気でおぼえるJava";  //エラー：finalフィールドMyApp.BOOK_TITLEには代入できません
+		*/
+		
+		/*インスタンス単位の定数
+		var app1 = new MyApp("独習Java");
+		System.out.println(app1.APP_NAME);
+		var app2 = new MyApp("Teach Yourself Java");
+		System.out.println(app2.APP_NAME);
+		*/
 
 	}
 
@@ -46,6 +58,7 @@ public final class Math {
 Mathクラスをインスタンス化しようとすると、「コンストラクターMath()は不可視です」というエラーが起きる。
 */
 
+
 /*
 クラスフィールドもクラスメソッドと同様、フィールドに対してstatic修飾子を付与するだけで定義できる。
 また、クラスフィールドはオブジェクトに属するインスタンスフィールド異なり、クラスに属するため、クラスメソッドからもアクセスできる。
@@ -68,4 +81,17 @@ public class MySingleton {
 クラスのインスタンスを1つしか生成しない、また、したくないという状況で利用する。
 シングルトンパターンではコンストラクターをprivate宣言し、アプリで保持すべき唯一のインスタンスをクラスフィールドとして保持しておく。
 これによって、クラスがロードされた初回に一度だけインスタンスが生成され、以降のインスタンス生成はしなく（できなく）なる。
+*/
+
+
+/*
+class{...}直下で定義された定数、読み取り専用のフィールドのことを「クラス定数」という。
+クラス定数を表すにはfinal修飾子を付与すればよい。
+○クラス定数
+[アクセス修飾子] static final データ型 定数名 [=値];
+
+static修飾子を伴わない、いわゆる「インスタンス単位の定数」を定義することもできる
+○インスタンス定数
+[アクセス修飾子] final データ型 定数名;
+この場合、定数値はコンストラクター経由で渡すのが一般的である。基本はクラス定数とし、理由があるときのみ非staticを使用する。
 */
