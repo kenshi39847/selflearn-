@@ -1,9 +1,17 @@
 package to.msn.wings.selflearn.chap07.classmethodclassfield;
 
 public class ClassMethodAndClassField {
-
+	
 	public static void main(String[] args) {
+		
+		/*クラスメソッド
 		System.out.println(Figure.getTriangleArea(10, 20));
+		*/
+		
+		/*クラスフィールド
+		System.out.println(Figure.pi);
+		Figure.getCircleArea(5);
+		*/
 
 	}
 
@@ -36,4 +44,28 @@ public final class Math {
   ...中略...
 }
 Mathクラスをインスタンス化しようとすると、「コンストラクターMath()は不可視です」というエラーが起きる。
+*/
+
+/*
+クラスフィールドもクラスメソッドと同様、フィールドに対してstatic修飾子を付与するだけで定義できる。
+また、クラスフィールドはオブジェクトに属するインスタンスフィールド異なり、クラスに属するため、クラスメソッドからもアクセスできる。
+ただし、クラスフィールドを利用するケースはあまりない。なぜなら、クラスに属するクラスフィールドは、
+インスタンスフィールドとは異なり、その内容を変更した場合、関係するすべてのコード（インスタンス）に影響が及んでしまうからである。
+原則として、クラスフィールドの利用は、
+・読み取り専用
+・クラス自体の状態を監視する
+というごく限定された状況に留めるべきである。
+
+public class MySingleton {
+  private static MySingleton instance = new MySingleton();
+  private MySingleton() {}
+  //あらかじめ用意しておいたインスタンスを取得
+  public static MySingleton getInstance() {
+    return instance;
+  }
+}
+上記は「シングルトン(Singleton)パターン」と呼ばれるデザインパターンの一種で、
+クラスのインスタンスを1つしか生成しない、また、したくないという状況で利用する。
+シングルトンパターンではコンストラクターをprivate宣言し、アプリで保持すべき唯一のインスタンスをクラスフィールドとして保持しておく。
+これによって、クラスがロードされた初回に一度だけインスタンスが生成され、以降のインスタンス生成はしなく（できなく）なる。
 */
