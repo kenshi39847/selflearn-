@@ -30,11 +30,25 @@ public class ArgumentAndReturnValue {
 		System.out.println(p.update(data)[0]);
 		System.out.println(data[0]);
 		*/
+		
+		/*
+		var b = new BookMap(Map.of(
+			"978-4-7981-5757-3", "JavaScript逆引きレシピ",
+		    "978-4-7981-5202-8", "Androidアプリ開発の教科書",
+		    "978-4-7981-5382-7", "独習C# 新版"
+		));
+
+		var title = b.getTitleByIsbn("978-4-7981-5757-3");
+		if (title == null) {
+			System.out.println("書籍は存在しません。");
+		} else {
+		    System.out.println(title.trim());
+		}
+		*/
 
 	}
 
 }
-
 /*
 引数の個数があらかじめ決まっていない（=実行時に引数の個数が変化しうる）メソッドを「可変長引数のメソッド」という。
 例えば、与えられた数値（群）の総積を求めるtotalProductのようなメソッドは、典型的な可変長引数のメソッドである。
