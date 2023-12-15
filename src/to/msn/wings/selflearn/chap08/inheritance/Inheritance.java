@@ -3,11 +3,22 @@ package to.msn.wings.selflearn.chap08.inheritance;
 public class Inheritance {
 
 	public static void main(String[] args) {
+		/*継承の基本
 		var bp = new BusinessPerson();
 	    bp.name = "山田太郎";
 	    bp.age = 30;
 	    System.out.println(bp.show());
 	    System.out.println(bp.work());
+	    */
+		
+		/*フィールドの隠蔽
+		var bp = new BusinessPerson();
+	    System.out.println(bp.birth);
+	    bp.show();
+
+	    Person p = new BusinessPerson();
+	    System.out.println(p.birth);
+	    */
 
 	}
 
@@ -24,4 +35,15 @@ public class Inheritance {
   ...派生クラスの定義...
 }
 extends句を省略した場合、暗黙的にObjectクラスを継承したと見なされる。
+*/
+
+/*
+基底クラスの同名フィールドを派生クラスで定義した場合、基底クラスのフィールドは派生クラスの同名のフィールドによって見えなくなる。
+これをフィールドの「隠蔽」という。
+データ型が異なっていても、名前が同じでさえあればフィールドは隠蔽される。
+ただし、基底クラスのフィールドも見えなくなっているだけで、存在自体がなくなったわけではない。
+予約変数superを用いることで隠蔽されたフィールドにアクセスすることも可能である。
+
+○superキーワード（フィールド）
+super.フィールド名
 */
