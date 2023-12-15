@@ -3,12 +3,16 @@ package to.msn.wings.selflearn.chap08.capsule;
 public class Capsule {
 
 	public static void main(String[] args) {
+		/*アクセサーメソッド
 		var p = new Person();
 		p.setName("山田太郎");
 		p.setAge(30);
 		System.out.println(p.show());
 		p.setAge(-30);
+		*/
 		
+		var p = new Person("山田太郎", 30);
+	    System.out.println(p.getName());
 
 	}
 
@@ -57,4 +61,14 @@ public データ型 getフィールド名() {
 public void setフィールド名(データ型 引数) {
   this.フィールド名 = 引数;
 }
+*/
+
+/*
+オブジェクトを最初に生成したところから、一切の値（フィールド）が変化しないクラスのことを「不変クラス（不変型）」という。
+可変クラスよりも実装/利用が簡単になり、結果としてバグの混入を防げる、堅牢なコードにもつながるというメリットにつながる。
+クラスを設計する際には要件を満たす限り、不変クラスとするのが理想的である。
+
+不変クラスでは、すべてのフィールドはprivate finalとして定義する（再代入を禁止する意図を明確に宣言できる）。
+そして、これらのprivate finalフィールドを初期化するのは、コンストラクターの役割であり、その他には一切の変更メソッドは設けない。
+また、一般的には、クラスそのものをfinal宣言し、拡張できないことを保証する。継承先のクラスが不変性を破るのを防止している。
 */
