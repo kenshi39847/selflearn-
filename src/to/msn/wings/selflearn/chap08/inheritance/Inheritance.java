@@ -27,6 +27,13 @@ public class Inheritance {
 	    System.out.println(bp.show());
 	    System.out.println(bp.work());
 	    */
+		
+		/*super
+		var ebp = new EliteBusinessPerson();
+	    ebp.name = "山田太郎";
+	    ebp.age = 30;
+	    System.out.println(ebp.work());
+		*/
 	}
 
 }
@@ -70,4 +77,11 @@ super.フィールド名
 |戻り値        |型が一致しているか、派生型であること                         |
 |アクセス修飾子|一致しているか、基底型のそれよりも緩いこと                   |
 |throw句       |一致しているか、派生型であること                             |
+*/
+
+/*
+オーバーライドでは基底クラスの機能を完全に書き換えることができる。しかし、基底クラスでの処理を引き継ぎつつ、
+派生クラスでは差分の処理だけを追加したいということもあるため、予約変数「super」を用いることでこれを解決できる。
+○superキーワード（メソッド）
+super.メソッド名(引数, ...) 
 */

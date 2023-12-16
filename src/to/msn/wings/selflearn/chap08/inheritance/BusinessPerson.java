@@ -25,5 +25,11 @@ public class BusinessPerson extends Person {
 	    return String.format("%d歳の%sは、働きます。", this.age, this.name);
 	}
 	*/
+	
+	/*super
+	public String work() {
+	    return String.format("%d歳の%sは、働きます。", this.age, this.name);
+	}
+	*/
 
 }
