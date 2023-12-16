@@ -34,6 +34,8 @@ public class Inheritance {
 	    ebp.age = 30;
 	    System.out.println(ebp.work());
 		*/
+		
+		var c = new MyChild();
 	}
 
 }
@@ -85,3 +87,9 @@ super.フィールド名
 ○superキーワード（メソッド）
 super.メソッド名(引数, ...) 
 */
+
+/*
+クラスが継承された場合のコンストラクラーの挙動は、メソッドとは異なる。
+なぜなら、コンストラクラーはメソッドのように派生クラスには引き継がれないからである。
+*/
+
