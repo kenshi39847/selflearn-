@@ -14,5 +14,11 @@ public class Person {
 	public String name;
 	public ZonedDateTime birth = ZonedDateTime.now();
 	*/
+	
+	/* 継承/オーバーライドの禁止
+	public final String show() {
+		return String.format("%s (%d歳)です", this.name, this age);
+	}
+	*/
 
 }

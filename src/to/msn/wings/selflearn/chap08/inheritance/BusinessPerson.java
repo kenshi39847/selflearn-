@@ -31,5 +31,11 @@ public class BusinessPerson extends Person {
 	    return String.format("%d歳の%sは、働きます。", this.age, this.name);
 	}
 	*/
+	
+	/*継承/オーバーライドの禁止
+	public String intro() {
+		return "会社員です";
+	}
+	*/
 
 }
