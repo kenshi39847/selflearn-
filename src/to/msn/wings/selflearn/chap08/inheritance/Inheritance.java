@@ -38,7 +38,12 @@ public class Inheritance {
 		/*派生クラスのコンストラクラー
 		var c = new MyChild();
 		*/
-	}
+		
+		Person p1 = new Person();
+		System.out.println(p1.getClass());
+		Person p2 = new BusinessPerson();
+		System.out.println(p2.getClass());
+	}	
 
 }
 
@@ -118,4 +123,20 @@ Person bp = new BusinessPerson();
 例）
 Person p = new BusinessPerson();
 BusinessPerson bp = (BusinessPerson)p;
+*/
+
+/*
+ダウンキャスト時にはあらかじめオブジェクトの型をチェックするべきで、これを行うのが「instanceof演算子」である。
+instanceof演算子は、変数に格納されたオブジェクトの型が、指定の型に変換できる場合にtrueを返す。
+○instanceof演算子
+変数 instanceof 型
+例）
+Person p = new BusinessPerson();
+BusinessPerson bp = (BusinessPerson)p;
+if (p instanceof Student) {
+  Student st = (Student)p;
+  ...正しくキャストできた場合の処理...
+}
+
+オブジェクトの型を取得するgetClassメソッドもある。
 */
