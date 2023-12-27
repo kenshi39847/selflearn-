@@ -3,12 +3,16 @@ package to.msn.wings.selflearn.chap08.polymorphism;
 public class Polymorphism {
 
 	public static void main(String[] args) {
+	    /*
 		//Shape型の変数に対してTriangel/Rectriangle型オブジェクトを代入
 		Shape tri = new Triangle(10, 50);
 		Shape rec = new Rectangle(10, 50);
 		//getAreaメソッドを呼び出し
 		System.out.println(tri.getArea());
 		System.out.println(rec.getArea());
+		*/
+		
+		
 
 	}
 
@@ -36,4 +40,33 @@ public abstract class Shape {
 [アクセス修飾子] abstract class クラス名 {
   ...クラスの定義...
 }
+*/
+
+/*
+配下のメソッドがすべて抽象メソッドであるクラスを「インターフェイス」である。
+抽象クラスと決定的に違うのは、多重継承が可能な点である。
+
+○インターフェイスの定義
+[修飾子] interface インターフェイス名 {
+  ...インターフェイスの定義...
+}
+
+インターフェイスを定義する際のポイントを以下にまとめる。
+1.interface命令で定義
+インターフェイスを定義するには、interface命令を使う。
+○interface命令で利用できる主な修飾子
+|修飾子  |概要                                    |
+|public  |すべてのクラスからアクセス可能          |
+|abstract|抽象クラス                              |
+|strictfp|不動小数点数を環境に依存しない方法で演算|
+2.インターフェイスで定義できるメンバー
+インターフェイス配下で定義できるメンバーは、その性質上、クラスよりも限定されている。
+・抽象メソッド
+・defaultメソッド
+・クラスメソッド
+・定数フィールド
+・入れ子のstaticクラス/インターフェイス
+
+定義済みのインターフェイスを継承してクラスを定義することをインターフェイスを「実装する」という。
+また、インターフェイスを実装したクラスのことを実装クラスという。
 */
