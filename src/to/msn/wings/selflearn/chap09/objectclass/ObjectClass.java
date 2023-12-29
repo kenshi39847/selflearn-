@@ -1,7 +1,5 @@
 package to.msn.wings.selflearn.chap09.objectclass;
 
-import java.util.Arrays;
-
 public class ObjectClass {
 
 	public static void main(String[] args) {
@@ -18,6 +16,7 @@ public class ObjectClass {
 	    System.out.println(bp.equals(p));
 	    */
 		
+		/*
 		var data = new Person[] {
 		      new Person("タロウ", "マツダ"),
 		      new Person("リコ", "モリヤマ"),
@@ -28,6 +27,12 @@ public class ObjectClass {
 		};
 		Arrays.sort(data);
 		System.out.println(Arrays.toString(data));
+		*/
+		
+		var p1 = new Person("太郎", "山田");
+	    var p2 = p1.clone();
+	    System.out.println(p1 == p2);
+	    System.out.println(p2);
 
 	}
 
@@ -57,4 +62,12 @@ equalsメソッドをオーバーライドした場合には、hashCodeメソッ
 オブジェクト同士を比較するためには「compareToメソッド」を利用する。
 Arrays.sortメソッドによるオブジェクトのソートや、TreeMap/TreeSetによる順番付きキーの管理にも利用される。
 Objectクラスではなく、Comparableインターフェイスに属するメソッドだが、値の大小意味を持ったクラスであれば実装するのが基本である。
+*/
+
+/*
+オブジェクトの複製（コピー）を生成するには「cloneメソッド」である。
+コピーの正確な意味はオブジェクトによって異なるが、一般的には以下の要件を満たすことである。
+1.x.clone() != x（異なる参照であること）
+2.x.clone().getClass() == x.getClass()（型が一致していること）
+3.x.clone().equals(x)（同値性を満たすこと）
 */

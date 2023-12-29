@@ -1,6 +1,6 @@
 package to.msn.wings.selflearn.chap09.objectclass;
 
-public class Person implements Comparable<Person> {
+public class Person implements Cloneable {
 	  
 	/*
 	//オブジェクトの文字列表現を取得する～toString～
@@ -49,6 +49,7 @@ public class Person implements Comparable<Person> {
 	}
 	*/
 	
+	/*
 	//オブジェクトを比較する～compareTo～
 	private String firstNameKana;
     private String lastNameKana;
@@ -71,4 +72,31 @@ public class Person implements Comparable<Person> {
 	public String toString() {
 	    return this.lastNameKana + " " + this.firstNameKana;
 	}
+	*/
+	
+	//オブジェクトを複製する～cloneメソッド～
+	private String firstName;
+	private String lastName;
+
+	public Person(String firstName, String lastName) {
+	    this.firstName = firstName;
+	    this.lastName = lastName;
+	}
+
+	@Override
+	public Person clone() {
+	    Person p = null;
+	    try {
+	      p = (Person)super.clone();
+	    } catch (CloneNotSupportedException e) {
+	      throw new AssertionError();
+	    }
+	    return p;
+	}
+
+	@Override
+	public String toString() {
+	    return this.lastName + this.firstName;
+	}
+	
 }
