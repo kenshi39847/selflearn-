@@ -1,5 +1,7 @@
 package to.msn.wings.selflearn.chap09.objectclass;
 
+import java.util.Arrays;
+
 public class ObjectClass {
 
 	public static void main(String[] args) {
@@ -16,7 +18,16 @@ public class ObjectClass {
 	    System.out.println(bp.equals(p));
 	    */
 		
-		
+		var data = new Person[] {
+		      new Person("タロウ", "マツダ"),
+		      new Person("リコ", "モリヤマ"),
+		      new Person("コウスケ", "モリタ"),
+		      new Person("マリコ", "モリヤ"),
+		      new Person("ソウシ", "ムラカミ"),
+		      new Person("エミ", "ヤマダ"),
+		};
+		Arrays.sort(data);
+		System.out.println(Arrays.toString(data));
 
 	}
 
@@ -40,4 +51,10 @@ Objectクラスが既定で用意しているequalsメソッドでは、同一�
 オブジェクトのハッシュ値（オブジェクトデータをもとに生成されたint値）を返すには「hashCodeメソッド」を利用する。
 HashMap/HashSetなどのハッシュ表で値を正しく管理するための情報で同値のオブジェクトは同じハッシュ値を返すことが期待される。
 equalsメソッドをオーバーライドした場合には、hashCodeメソッドもセットでオーバーライドすべきである。
+*/
+
+/*
+オブジェクト同士を比較するためには「compareToメソッド」を利用する。
+Arrays.sortメソッドによるオブジェクトのソートや、TreeMap/TreeSetによる順番付きキーの管理にも利用される。
+Objectクラスではなく、Comparableインターフェイスに属するメソッドだが、値の大小意味を持ったクラスであれば実装するのが基本である。
 */
