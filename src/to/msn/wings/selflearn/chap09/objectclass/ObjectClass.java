@@ -15,6 +15,8 @@ public class ObjectClass {
 	    System.out.println(p.equals(bp));
 	    System.out.println(bp.equals(p));
 	    */
+		
+		
 
 	}
 
@@ -32,4 +34,10 @@ System.out.println(obj);
 オブジェクト同士が等しいかどうかを判定するには「equalsメソッド」を利用する。
 Objectクラスが既定で用意しているequalsメソッドでは、同一性（=オブジェクト参照が同じオブジェクトを示していること）を
 確認しているにすぎない。意味ある値としての等価を判定したい場合には、個別のクラスでequalsメソッドをオーバーライドする。
+*/
+
+/*
+オブジェクトのハッシュ値（オブジェクトデータをもとに生成されたint値）を返すには「hashCodeメソッド」を利用する。
+HashMap/HashSetなどのハッシュ表で値を正しく管理するための情報で同値のオブジェクトは同じハッシュ値を返すことが期待される。
+equalsメソッドをオーバーライドした場合には、hashCodeメソッドもセットでオーバーライドすべきである。
 */
