@@ -7,6 +7,7 @@ import java.io.IOException;
 public class ExceptionHandling {
 
 	public static void main(String[] args) {
+		/*
 		try {
 		    var in = new FileInputStream("C:/data/nothing.gif");
 		    var data = -1;
@@ -18,6 +19,28 @@ public class ExceptionHandling {
 		} catch (IOException e) {
 		    e.printStackTrace();
 		}
+		*/
+		
+		FileInputStream in = null;
+	    try {
+	      in = new FileInputStream("C:/data/nothing.gif");
+	      var data = -1;
+	      while ((data = in.read()) != -1) {
+	        System.out.printf("%02X ", data);
+	      }
+	    } catch (FileNotFoundException e) {
+	      System.out.println("ファイルが見つかりませんでした。");
+	    } catch (IOException e) {
+	      e.printStackTrace();
+	    } finally {
+	      try {
+	        if (in != null) {
+	          in.close();
+	        }
+	      } catch (IOException e) {
+	        e.printStackTrace();
+	      }
+	    }
 
 	}
 
@@ -51,4 +74,9 @@ tryブロックがアプリ本来の処理で、ここで例外が発生する�
 |void printStackTrace               |スタックトレースを出力                    |
 「スタックトレース」とは例外が発生するまでに経てきたメソッドの経歴である。
 エントリーポイントであるmainメソッドを基点に呼び出し順に記録される。
+*/
+
+/*
+try...catch命令には、必要に応じて、例外の有無に関わらず最終的に実行される「finallyブロック」を追加することができる。
+一般的には、tryブロックの中で利用したリソースの後始末のためなどに利用する。
 */
