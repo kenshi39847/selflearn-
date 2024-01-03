@@ -21,6 +21,7 @@ public class ExceptionHandling {
 		}
 		*/
 		
+		/*
 		FileInputStream in = null;
 	    try {
 	      in = new FileInputStream("C:/data/nothing.gif");
@@ -41,6 +42,18 @@ public class ExceptionHandling {
 	        e.printStackTrace();
 	      }
 	    }
+	    */
+		
+		try (var in = new FileInputStream("C:/data/nothing.gif")) {
+		    var data = -1;
+		    while ((data = in.read()) != -1) {
+		        System.out.printf("%02X ", data);
+		    }
+		    } catch (FileNotFoundException e) {
+		      System.out.println("ファイルが見つかりませんでした。");
+		    } catch (IOException e) {
+		      e.printStackTrace();
+		}
 
 	}
 
@@ -79,4 +92,12 @@ tryブロックがアプリ本来の処理で、ここで例外が発生する�
 /*
 try...catch命令には、必要に応じて、例外の有無に関わらず最終的に実行される「finallyブロック」を追加することができる。
 一般的には、tryブロックの中で利用したリソースの後始末のためなどに利用する。
+*/
+
+/*
+try...finally構文よりもリソース破棄に特化しており、シンプルに表現できる「try-with-resource構文」がある。
+ただし、いくつかの注意点もある。
+1.AutoCloseableインターフェースを実装していること
+2.リソース解放の順序が変わる
+3.リソースのスコープが異なる
 */
