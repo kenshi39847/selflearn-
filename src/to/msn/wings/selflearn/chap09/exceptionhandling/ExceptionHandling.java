@@ -1,10 +1,10 @@
 package to.msn.wings.selflearn.chap09.exceptionhandling;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 public class ExceptionHandling {
+	private static double getTrapezoidArea(double upper, double lower, double height) {
+	    assert upper > 0 && lower > 0 && height > 0;
+	    return (upper + lower) * height / 2;
+	}
 
 	public static void main(String[] args) {
 		/*
@@ -44,6 +44,7 @@ public class ExceptionHandling {
 	    }
 	    */
 		
+		/*
 		try (var in = new FileInputStream("C:/data/nothing.gif")) {
 		    var data = -1;
 		    while ((data = in.read()) != -1) {
@@ -54,6 +55,11 @@ public class ExceptionHandling {
 		    } catch (IOException e) {
 		      e.printStackTrace();
 		}
+		*/
+		
+		/* assert命令
+		System.out.println(ExceptionHandling.getTrapezoidArea(-2, 4, 0));
+		*/
 
 	}
 
@@ -123,4 +129,21 @@ NullPointterException（オブジェクトがnull）など、基本的には正�
 catch (IOException | URISyntaxException e)
 3.catchブロックの記述順
 複数のcathcブロックがある場合には、記述が先にあるものが優先される。
+*/
+
+/*
+「throw命令」を利用することで、アプリ開発者が自ら例外をスローすることもできる。
+○throw命令
+throw 例外オブジェクト
+throw命令には、任意の例外オブジェクトを渡せる。例外オブジェクトであることの要件はThrowableクラスを継承していることだけである。
+ただし、アプリから明示的にスローするのはExceptionの派生クラスになるはず（そうすべき）である。
+例外をスローする場合には以下のような点に注意する。
+1.Exceptionをスローしない
+2.検査例外/非検査例外を適切に選択する
+3.できるだけ標準例外を利用する
+4.privateメソッドではassert命令で代用
+○assert命令
+assert 条件式 [:エラーメッセージ]
+assert命令は、与えられた条件式がfalseの場合にAssertionError例外を投げる。AssertionErrorはErrorクラス配下に属し、
+致命的なエラーの意味である。assert命令はjavaコマンドで-eaオプションを明示した場合にだけ動作する。
 */
