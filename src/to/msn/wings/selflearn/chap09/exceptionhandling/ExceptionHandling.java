@@ -101,3 +101,26 @@ try...finally構文よりもリソース破棄に特化しており、シンプ�
 2.リソース解放の順序が変わる
 3.リソースのスコープが異なる
 */
+
+/*
+例外/エラーは階層ツリーに沿って、さらに大きく3種類に分類できる。
+1.Errorクラス
+致命的なエラーを表す。配下の例外はエラー例外とも呼ばれ、代表的なものにIOError（重大な入出力エラー）、
+VirtualMachineError（仮想マシンレベルでの障害）がある。いずれもアプリでは処理できないレベルのエラーで、一般的には
+例外処理として扱うべきではない。
+2.Exception配下のエラー
+アプリに起因する問題を表す。RuntimeException配下の例外とそれ以外の例外に分類できる。
+RuntimeExceptionとその配下の例外は実行時のエラーであり、IllegalArgumentException（不正の引数）、
+NullPointterException（オブジェクトがnull）など、基本的には正しいアプリでは発生しないはずのバグである。
+3.Exceptionクラスの配下で、RuntimeException配下以外に位置する例外（狭義の例外）
+代表的なものにFileNotFoundException（ファイルが存在しない）、SQLException（データベースアクセス時の問題）などがある。
+
+以上を前提に例外を処理する際の注意点を以下にまとめる。
+1.Exceptionで補足しない
+ファイルが存在しない場合の例外を補足するならば、上位のIOExceptionよりもより具体的なFileNotFoundException例外を利用すべきである。
+2.マルチキャッチを活用する
+マルチキャッチ構文では、対処の例外型を「|」で列挙するだけである。
+catch (IOException | URISyntaxException e)
+3.catchブロックの記述順
+複数のcathcブロックがある場合には、記述が先にあるものが優先される。
+*/
