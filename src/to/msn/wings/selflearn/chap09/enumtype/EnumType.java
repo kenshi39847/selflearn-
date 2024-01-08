@@ -2,15 +2,21 @@ package to.msn.wings.selflearn.chap09.enumtype;
 
 public class EnumType {
 
+	
 	public static void main(String[] args) {
+		/*
 		for (var se : Season.values()) {
 		    System.out.println(se.ordinal() + ":" + se.toString());
 		}
 		var s = Season.valueOf("SPRING");
 	    System.out.println(s instanceof Season);
-
+	    */
+	 
+		for (var se: Season.values()) {
+		      se.show();
+		}
 	}
-
+	
 }
 
 /*
@@ -50,4 +56,8 @@ enumブロックで定義された列挙型ですが、実は、Enumクラスを
 |※E valueOf(String name)|名前から列挙定数を取得           |
 列挙型で定義されたすべての列挙定数を取得するには、valuesメソッドを利用する。
 文字列表現から列挙型を取得したいならば、valueOf静的メソッドを利用する。
+*/
+
+/*
+列挙型の実体はクラスで、一般的なクラスと同じくメソッド、フィールド、コンストラクターなどのメンバーを定義できるが、相違点もある。
 */
