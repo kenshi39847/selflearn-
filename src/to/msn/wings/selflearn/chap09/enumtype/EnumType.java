@@ -3,7 +3,11 @@ package to.msn.wings.selflearn.chap09.enumtype;
 public class EnumType {
 
 	public static void main(String[] args) {
-		
+		for (var se : Season.values()) {
+		    System.out.println(se.ordinal() + ":" + se.toString());
+		}
+		var s = Season.valueOf("SPRING");
+	    System.out.println(s instanceof Season);
 
 	}
 
@@ -33,4 +37,17 @@ public enum Season {
 
 ○列挙型へのアクセス
 列挙型.列挙定数
+*/
+
+/*
+enumブロックで定義された列挙型ですが、実は、Enumクラスを暗黙的に継承したクラスである。
+○Enumクラスの主なメンバー（Eは個々の列挙型、※は静的メソッド）
+|メソッド              |概要                             |
+|String name()         |列挙定数の名前を取得             |
+|int ordinal()         |列挙定数の序数を取得（0スタート）|
+|String toString()     |列挙定数の名前を取得             |
+|※E[] values()          |すべての列挙定数を取得           |
+|※E valueOf(String name)|名前から列挙定数を取得           |
+列挙型で定義されたすべての列挙定数を取得するには、valuesメソッドを利用する。
+文字列表現から列挙型を取得したいならば、valueOf静的メソッドを利用する。
 */
