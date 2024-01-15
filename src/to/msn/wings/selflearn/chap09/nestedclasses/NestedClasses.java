@@ -3,9 +3,14 @@ package to.msn.wings.selflearn.chap09.nestedclasses;
 public class NestedClasses {
 
 	public static void main(String[] args) {
+		/* staticメンバークラス
 		var c = new MyClass();
 	    c.run();
 	    // var h = new MyClass.MyHelper();
+	    */
+		
+		var c = new MyClass();
+	    c.run();
 
 	}
 
@@ -26,4 +31,16 @@ public class NestedClasses {
 1.classブロックの配下で定義する
 2.利用できる修飾子が異なる
 3.入れ子のクラスの名前は「エンクロージングクラス.入れ子クラス」
+*/
+
+/*
+static修飾子が付かないメンバークラスのことを、非staticなメンバークラス、または内部クラス（Inner Class）という。
+内部クラスとstaticメンバークラスとの相違点はそれがどこに属するかである。
+内部クラス・・・エンクロージングオブジェクトに属する
+staticメンバークラス・・・エンクロージングクラスに属する
+その性質上、内部クラスは以下の性質を持つ。
+・内部クラスをインスタンス化するには、エンクロージングオブジェクトが必要
+・内部クラスからは、this変数経由でエンクロージングクラスのインスタンスメンバーにアクセスできる
+つまり、内部クラスはエンクロージングクラスのインスタンスフィールドを参照する用途で利用し、
+それ以外ではstaticメンバークラスを利用すべきである。
 */
