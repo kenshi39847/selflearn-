@@ -51,3 +51,27 @@ public class MethodReference_LambdaExpression {
   ...メソッドの本体...
 }
 */
+
+/*
+コレクションフレームワークでは、引数としてラムダ式を指定できるメソッドが用意されている。
+○replaceAllメソッド（指定されたルールで値を置き換える）
+public void replaceAll(UnaryOperator<E> operator)
+E:リストの要素型
+operator:置き換えルール
+○replaceAllメソッド（指定されたルールで値を置き換える）
+public void replaceAll(BiFunction<? super K,? super V,? extends V> function)
+K:キーのデータ型
+V:値のデータ型
+function:置き換えルール
+○removeIfメソッド（条件に合致した要素をリストから除去する）
+public boolean removeIf(Predicate<? super E> filter)
+E:リストの要素型
+filter:検索条件
+○mergeメソッド（重複したキーの値を加工する）
+public V merge(K key, V value, BiFunction<? super V,? super V,? extends V> remap)
+K:キーのデータ型
+V:値のデータ型
+key:キー
+value:値
+remap:値を加工するための関数
+*/
