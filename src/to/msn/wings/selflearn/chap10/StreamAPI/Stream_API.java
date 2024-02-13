@@ -1,19 +1,34 @@
 package to.msn.wings.selflearn.chap10.StreamAPI;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Stream_API {
 
-	public static void main(String[] args) {
-		var list = new ArrayList<String>(Arrays.asList("ant", "elephant", "hamster"));
-	}
-	
-	list.
-	stream().
-	filter(s -> s.length() > 3).
-	map(String::toUpperCase).
-	forEach(System.out::println);
+  public static void main(String[] args) {
+	/*
+    var list = new ArrayList<String>(Arrays.asList("ant", "elephant", "hamster"));
+    list.
+      stream().
+      filter(s -> s.length() > 3).
+      map(String::toUpperCase).
+      forEach(System.out::println);
+    */
+	  
+	  var list = new ArrayList<String>(Arrays.asList("ant", "elephant", "hamster"));
+	    list.stream().forEach(System.out::println);
+	    // list.parallelStream().forEach(System.out::println);
+	    System.out.println("---------------");
 
+	    var data = new String[] { "バラ", "あさがお", "チューリップ" };
+	    Arrays.stream(data).forEach(System.out::println);
+	    System.out.println("---------------");
+
+	    var map = new HashMap<String, String>(
+	        Map.of("orange", "みかん", "apple", "りんご", "strawberry", "いちご"));
+	    map.entrySet().stream().forEach(System.out::println);
+  }
 }
 
 /*
@@ -25,4 +40,9 @@ Stream APIによる処理は大まかに以下の3つである。
 ・データソースからのストリーム生成
 ・抽出/加工などの中間処理
 ・出力/集計などの終端処理
+*/
+
+/*
+○コレクション/配列から生成する
+streamメソッドを利用することでコレクション/配列からストリームを生成できる。
 */
