@@ -1,8 +1,6 @@
 package to.msn.wings.selflearn.chap10.StreamAPI;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.stream.Stream;
 
 public class Stream_API {
 
@@ -15,7 +13,7 @@ public class Stream_API {
       map(String::toUpperCase).
       forEach(System.out::println);
     */
-	  
+	  /*
 	  var list = new ArrayList<String>(Arrays.asList("ant", "elephant", "hamster"));
 	    list.stream().forEach(System.out::println);
 	    // list.parallelStream().forEach(System.out::println);
@@ -28,6 +26,33 @@ public class Stream_API {
 	    var map = new HashMap<String, String>(
 	        Map.of("orange", "みかん", "apple", "りんご", "strawberry", "いちご"));
 	    map.entrySet().stream().forEach(System.out::println);
+	    */
+	  
+	  /*
+	  var stream = Stream.of("first", "second", "third");
+	  stream.forEach(System.out::println);
+	  */
+	  
+	  /*
+	  var stream = Stream.iterate(1, (num) -> {
+	      return num * 2;
+	  });
+	  stream.limit(10).forEach(System.out::println);
+	  */
+	  
+	  /*
+	  var builder = Stream.builder()
+		        .add("いちじく")
+		        .add("にんじん")
+		        .add("さんしょ");
+	  builder.build().forEach(System.out::println);
+	  */
+	  
+	  var stream1 = Stream.of("いちじく", "にんじん", "さんしょ");
+	    var stream2 = Stream.of("しいたけ", "ごぼう", "むくろじゅ");
+	    Stream.concat(stream1, stream2)
+	  .forEach(System.out::println);
+	  
   }
 }
 
@@ -45,4 +70,18 @@ Stream APIによる処理は大まかに以下の3つである。
 /*
 ○コレクション/配列から生成する
 streamメソッドを利用することでコレクション/配列からストリームを生成できる。
+
+○引数/ラムダ式からストリームを生成する
+Streamクラスでは、ストリーム生成のためのファクトリーメソッドを提供している。
+1.ofメソッド
+指定された可変長引数をストリームに変換する。
+2.generateメソッド
+指定されたラムダ式の戻り値に対してストリームを生成する。
+3.iterateメソッド
+指定された初期値とラムダ式からストリームを生成する。
+4.builderメソッド
+ストリームを組み立てるためのStream.Buildrオブジェクトを生成する。
+5.concatメソッド
+複数のストリームを結合して、1つのストリームにまとめるこができる。
+
 */
