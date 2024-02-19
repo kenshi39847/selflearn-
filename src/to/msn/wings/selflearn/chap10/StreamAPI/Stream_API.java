@@ -138,6 +138,48 @@ public class Stream_API {
       .forEach(System.out::println);
 	  */
 	  
+	  /*
+	  Stream.of("バラ", "あさがお", "チューリップ", "さくら")
+//    .parallel()
+//    .forEachOrdered(v -> System.out.println(v));
+	  .forEach(v -> System.out.println(v));
+	  */
+	  
+	  /*
+	  var str = Stream.of("バラ", "あさがお", "さざんか", "うめ", "さくら", "もも")
+		        .filter(s -> s.startsWith("さ"))
+		        .findFirst();
+		      System.out.println(str.orElse("－"));
+
+//		        .parallel()
+//		        .filter(s -> s.startsWith("さ"))
+//		        .findAny();
+//		      System.out.println(str.orElse("－"));
+	  */
+	  
+	  /*
+	  System.out.println(
+		        IntStream.of(1, 10, 5, -5, 12)
+		          .allMatch(v -> v >= 0)
+		          // .anyMatch(v -> v >= 0)
+	  );
+	  */
+	  
+	  /*
+	  var list = Stream.of("バラ", "あさがお", "さざんか", "うめ", "さくら")
+	      .filter(s -> s.startsWith("さ"))
+	      .toArray();
+	  System.out.println(list[0]);
+	  */
+	  
+	  /*
+	  var list = Stream.of("バラ", "あさがお", "さざんか", "うめ", "さくら")
+	        .filter(s -> s.startsWith("さ"))
+	        .collect(Collectors.toList());
+	  System.out.println(list);
+	  */
+	  
+	  
 
   }
 }
@@ -193,4 +235,24 @@ Streamクラスでは、ストリーム生成のためのファクトリーメ�
 「peekメソッド」を利用することで、ストリーム処理の途中で任意の処理を差し込むことができる。
 ○値の重複を除去する
 「discountメソッド」を利用することで、ストリームに含まれる値の重複を除去できる。
+*/
+
+/*
+「ストリームの終端処理」は、ストリーム処理によって加工/フィルターされた値を最終的に出力/集計する役割を担っている。
+ストリームは終端処理の呼び出しをトリガーに最終的にまとめて処理されるため、終端処理は省略できない。
+また、終端処理を終えたストリームを再利用することはできない。
+再びストリーム処理を実施する際はストリームそのものをデータソースから再生成する。
+○それぞれの要素を順に処理する
+「forEachメソッド」を利用する。
+○最初の値を取得する
+「findFirstメソッド」を利用する。
+○値が特定の条件を満たすかを判定する
+|メソッド                                          |概要                              |
+|boolean  anyMatch(Predicate<? super T> predicate) |条件式がtrueとなる要素が存在するか|
+|boolean  allMatch(Predicate<? super T> predicate) |条件式がすべてtrueとなるか        |
+|boolean  noneMatch(Predicate<? super T> predicate)|条件式がすべてtrueにならないか    |
+○配列/コレクションに変換する
+「toArrayメソッド」でストリーム処理の結果を文字列配列として取得する。
+「iteratorメソッド」でイテレーターを取得する。
+「collectメソッド」でコレクションに変換できる。
 */
