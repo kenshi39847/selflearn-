@@ -179,6 +179,63 @@ public class Stream_API {
 	  System.out.println(list);
 	  */
 	  
+	  /*
+	  var str = Stream.of("めばる", "さんま", "ひらめ", "いわし", "ほっけ")
+		        .min(Comparator.naturalOrder());
+		      System.out.println(str.orElse(""));
+	  */
+	  
+	  /*
+	  System.out.println(
+		        Stream.of("バラ", "あさがお", "チューリップ", "さくら")
+		          .filter(s -> s.length() > 3)
+		          .count()
+		    );
+	  */
+	  
+	  /*
+	  var list = new int[] { 5, 1, 10, -3 };
+	    System.out.println(IntStream.of(list).sum());
+	    System.out.println(IntStream.of(list).average().orElse(0));
+	  */
+	  
+	  /*
+	  System.out.println(
+		      Stream.of("バラ", "あさがお", "チューリップ", "さくら")
+		        .sorted()
+		        .reduce((result, str) -> {
+		          return result + "," + str;
+		        })
+		        .orElse("")
+		    );
+	  */
+	  
+	  /*
+	  System.out.println(
+		      Stream.of("バラ", "あさがお", "チューリップ", "さくら")
+		        .sorted()
+		        // .parallel()
+		        .reduce("ひまわり", (result, str) -> {
+		          return result + "," + str;
+		        })
+		    );
+	  */
+	  
+	  /*
+	  System.out.println(
+		      Stream.of("153", "211", "112", "350", "418", "208")
+		        .parallel()
+		        .reduce(0,
+		          (result, value) -> {
+		            return result + Integer.parseInt(value);
+		          },
+		          (result1, result2) -> {
+		            return result1 + result2;
+		          }
+		      )
+		    );
+	  */
+	  
 	  
 
   }
@@ -255,4 +312,28 @@ Streamクラスでは、ストリーム生成のためのファクトリーメ�
 「toArrayメソッド」でストリーム処理の結果を文字列配列として取得する。
 「iteratorメソッド」でイテレーターを取得する。
 「collectメソッド」でコレクションに変換できる。
+○最大値/最小値を求める
+「min/maxメソッド」を利用する。引数には、比較ルール（Comparator型）を指定する。
+戻り値はOptional型なので、値取り出しにはorElseメソッドを利用する。 
+○要素の個数を求める
+「countメソッド」を利用する。
+○合計値/平均値を求める
+「sum/averageメソッド」を利用する。
+○ストリームの値を一つにまとめる
+1.引数が1つの場合
+「reduceメソッド」を利用する。
+reduceメソッドは引数として、
+・演算結果を格納するための変数
+・個々の要素を受け取るための変数
+を受け取る。
+2.引数が2個の場合
+以下の点に注意する。
+・結果は非nullであることか明らかなので、非Optionalである。つまりOrElse経由ではなくても値は取得できる。
+・並列ストリームでは、分散された分だけ、初期値がラムダ式に適用されるため。結果が変化する。
+3.引数が3個の場合
+Streamの要素型と、最終的な結果型が異なる場合などに用いる。
+また、引数として
+・演算結果を格納するための変数
+・個々の要素を受け取るための変数
+を受け取る点は同じだが、result/valueが異なる型でもかまわない点が異なる。
 */
