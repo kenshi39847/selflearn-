@@ -1,5 +1,8 @@
 package to.msn.wings.selflearn.chap10.StreamAPI;
 
+import java.util.IntSummaryStatistics;
+import java.util.stream.IntStream;
+
 public class Stream_API {
 
   public static void main(String[] args) {
@@ -236,6 +239,97 @@ public class Stream_API {
 		    );
 	  */
 	  
+	  /*
+	  System.out.println(
+		      Stream.of("バラ", "あさがお", "チューリップ", "さくら")
+		        .sorted()
+		        .collect(
+		          ArrayList<String>::new,
+		          (list, str) -> list.add(str),
+		          (list1, list2) -> list1.addAll(list2)
+		        )
+
+//		      .collect(
+//		          ArrayList::new,
+//		          ArrayList::add,
+//		          ArrayList::addAll
+//		        )
+		    );
+		    
+		    
+	  */
+	  
+	  /*
+	  System.out.println(
+		      Stream.of("バラ", "あさがお", "チューリップ", "さくら")
+		        .sorted()
+		        .collect(
+		          Collector.of(
+		            ArrayList::new,
+		            ArrayList::add,
+		            (list1, list2) -> {
+		              list1.addAll(list2);
+		              return list1;
+		            },
+		            Collector.Characteristics.IDENTITY_FINISH
+		          )
+		        )
+		    );
+	  */
+	  
+	  /*
+	  System.out.println(
+		        Stream.of("バラ", "あさがお", "チューリップ", "さくら")
+		          .sorted()
+		          .collect(Collectors.joining(",", "<", ">"))
+		      );
+	  */
+	  
+	  /*
+	  System.out.println(
+		        Stream.of("バラ", "あさがお", "さざんか", "うめ", "さくら")
+		          .sorted()
+		          .collect(
+		            Collectors.groupingBy(str -> str.length()
+		          ))
+		      );
+	  */
+	  
+	  /*
+	  System.out.println(
+		        Stream.of("バラ", "あさがお", "さざんか", "うめ", "さくら")
+		          .sorted()
+		          .collect(
+		            Collectors.partitioningBy(
+		              str -> str.length() > 3
+		          )
+		        )
+		      );
+	  */
+	  
+	  /*
+	  System.out.println(
+		        Stream.of("バラ", "あさがお", "さざんか", "うめ", "さくら")
+		          .sorted()
+		          .collect(
+		            Collectors.collectingAndThen(
+		              Collectors.toList(),
+		              Collections::unmodifiableList
+		            )
+		          )
+		      );
+	  */
+	  
+	  var summary = IntStream.of(5, 13, 7, 2, 30)
+		      .collect(
+		        IntSummaryStatistics::new,
+		        IntSummaryStatistics::accept,
+		        IntSummaryStatistics::combine
+		      );
+		    System.out.println(summary.getMin());
+		    System.out.println(summary.getSum());
+		    System.out.println(summary.getAverage());
+	  
 	  
 
   }
@@ -336,4 +430,20 @@ Streamの要素型と、最終的な結果型が異なる場合などに用い�
 ・演算結果を格納するための変数
 ・個々の要素を受け取るための変数
 を受け取る点は同じだが、result/valueが異なる型でもかまわない点が異なる。
+○ストリーム内の要素をコレクションなどにまとめる1
+「collectメソッド」を利用する。collectメソッドはコレクション/StringBuilderのように
+可変なコンテナーに対して値を蓄積してから返す（可変リダクション）。
+○ストリーム内の要素をコレクションなどにまとめる2
+引数collectorはsupplier/accumulator/combinerをまとめたオブジェクト（コレクター）である。
+○標準コレクターを利用する
+1.joiningメソッド
+文字列を結合するためのコレクターを生成する。
+2.groupingByメソッド
+指定されたキーで値をグループ化するためにコレクターを生成する。
+3.partitioningByメソッド
+グループ化処理だが、条件式のtrue/falseで2分割しかできない。
+4.collectingThenメソッド
+コレクターを実行したあと、終了処理を実行できる。
+5.XxxxxSummaryStatisticsクラス
+数値の基本的な統計情報を取得する。
 */
